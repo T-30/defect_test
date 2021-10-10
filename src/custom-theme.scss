@@ -1,0 +1,106 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$my-app-primary: mat.define-palette(mat.$indigo-palette);
+$my-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$my-app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$my-app-theme: mat.define-light-theme((
+  color: (
+    primary: $my-app-primary,
+    accent: $my-app-accent,
+    warn: $my-app-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($my-app-theme);
+/* You can add global styles to this file, and also import other style files */
+$common-color:#DA5D5D;
+$white:rgb(255, 255, 255);
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;  
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  padding-top: 10px;
+  font-weight: 600;
+}
+
+.container {
+  padding: 30px;
+}
+
+.mat-drawer-container {
+  height: 100vh !important;
+
+}
+
+.mat-drawer-inner-container {
+  width: 200px !important;
+  background-color: $common-color;
+}
+
+.right-side {
+  padding: 10px !important;
+  background-color: $common-color;
+  display: flex !important;
+
+  h1 {
+    text-align: center !important;
+    padding: 0 !important;
+    margin: auto;
+  }
+}
+
+.mat-icon,
+.mat-list-item,
+h1 {
+  cursor: pointer !important;
+  color: $white !important;
+}
+
+.mat-icon {
+  font-size: 36px;
+}
+
+.mat-list-base {
+  padding-top: 30px !important;
+}
+
+.mat-list-base .mat-list-item .mat-list-item-content {
+  text-align: center !important;
+  display: block !important;
+  padding-top: 15px !important;
+}
+
+.mat-list-item-content:hover {
+  background-color: #f8caca !important;
+}
+

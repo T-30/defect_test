@@ -1,0 +1,174 @@
+<app-header></app-header>
+
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!--Bootsrap 4 CDN-->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+    <!--Icon styles-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <body>
+        <!-- <app-registers></app-registers> -->
+        <div class="bg" >  
+            <mat-drawer-container class="bg" >
+                <mat-drawer #drawer mode="side" opened>
+                    <h1></h1>
+                    <mat-list role="list" class="side-bar">
+                        <div class="sidesbar">
+                            <div class="sidesbar_details">
+                                <div class="sidesbar_job">
+                                    <li>
+                                        <a (click)="board()">
+                                            <i class='bx bx-bar-chart-alt-2' ></i>
+                                            <span class="links_sidesbar">board</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidesbar">
+                            <div class="sidesbar_details">
+                                <div class="sidesbar_job">
+                                    <li>
+                                        <a (click)="create()">
+                                            <i class='bx bx-pencil'></i>
+                                            <span class="links_sidesbar">create defect</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidesbar">
+                            <div class="sidesbar_details">
+                                <div class="sidesbar_job">
+                                    <li>
+                                        <a (click)="testcase()">
+                                            <i class='bx bxs-book-open' ></i>
+                                            <span class="links_sidesbar">testcase</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidesbar">
+                            <div class="sidesbar_details">
+                                <div class="sidesbar_job">
+                                    <li>
+                                        <a (click)="homepro()">
+                                            <i class='bx bx-pie-chart-alt-2' ></i>
+                                            <span class="links_sidesbar">chart</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+
+                  
+                    </mat-list>
+                        <div class="exit">
+                            <div class="exit_details">
+                                <div class="exit_ex">
+                                    <li>
+                                        <a (click)="exit()">
+                                            <i class='bx bx-exit' ></i>
+                                            <span class="links_exit">EXIT</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                
+                            </div>
+                        </div>
+                </mat-drawer>
+            
+                <mat-drawer-content>
+                    <div class="right-side">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="drawer.toggle()">reorder</mat-icon>
+                        <h2 style="width: 300px; height: 20px; padding-left: 20px;">Create testcase</h2>
+
+                        <div class="ph-float">
+                            <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" 
+                            class='ph-button ph-btn-red'>CANCEL</button> -->
+
+                            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" 
+                            class='ph-button ph-btn-green' >add</button>
+                        </div> 
+                    
+                    </div>
+
+                    <div>
+                      <div>
+                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                          <!--- Note that these columns can be defined in any order.
+                                The actual rendered columns are set as a property on the row definition" -->
+                        
+                          <!-- Position Column -->
+                          <ng-container matColumnDef="testmoduleID">
+                            <th mat-header-cell *matHeaderCellDef> No.TS </th>
+                            <td mat-cell *matCellDef="let element"> {{element.testmoduleID}} </td>
+                          </ng-container>
+                        
+                          <!-- Test Module Name Column -->
+                          <ng-container matColumnDef="modulename">
+                            <th mat-header-cell *matHeaderCellDef> TestModuleName </th>
+                            <td mat-cell *matCellDef="let element"> {{element.modulename}} </td>
+                          </ng-container>
+                        
+                          <!-- testcase id Column -->
+                          <ng-container matColumnDef="testcaseID">
+                            <th mat-header-cell *matHeaderCellDef> No.TC </th>
+                            <td mat-cell *matCellDef="let element"> {{element.testcaseID}} </td>
+                          </ng-container>
+                        
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="testcases">
+                            <th mat-header-cell *matHeaderCellDef> TestCase </th>
+                            <td mat-cell *matCellDef="let element"> {{element.testcases}} </td>
+                          </ng-container>
+
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="testdata">
+                            <th mat-header-cell *matHeaderCellDef> TestData </th>
+                            <td mat-cell *matCellDef="let element"> {{element.testdata}} </td>
+                          </ng-container>
+
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="teststep">
+                            <th mat-header-cell *matHeaderCellDef> TestStep </th>
+                            <td mat-cell *matCellDef="let element"> {{element.teststep}} </td>
+                          </ng-container>
+                          
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="expectedresult">
+                            <th mat-header-cell *matHeaderCellDef> ExpectedResult </th>
+                            <td mat-cell *matCellDef="let element"> {{element.expectedresult}} </td>
+                          </ng-container>
+                          
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef> Status </th>
+                            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                          </ng-container>
+
+                        
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                        
+                        
+                      </div>
+                    </div>
+
+                </mat-drawer-content>
+            </mat-drawer-container>
+        </div>       
+    </body>
+</html>
+
+
+
+

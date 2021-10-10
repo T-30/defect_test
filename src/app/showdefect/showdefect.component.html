@@ -1,0 +1,176 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!--Bootsrap 4 CDN-->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+    <!--Icon styles-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <body>
+        
+        <mat-dialog-actions >
+            <h2 mat-dialog-title>TiTle </h2> 
+            <span style="margin-left: 600px;">
+                <button mat-button mat-dialog-close><i class='bx bx-x' style="font-size: 30px;font-weight: 200;"></i></button> 
+            </span>
+                
+        </mat-dialog-actions>
+
+        
+        
+
+        <mat-dialog-content class="mat-typography">
+            <div > 
+
+                <div class="row" style="padding-left: 2%; width: 100%;">
+                    
+                </div>
+
+                
+                <div class="row" style="width: 100%;">
+                    <div class="col-sm-3" style=" padding-top: 0.5%;width: 300px;">
+                        <div class="col-sm">
+                            <p class="date">Date : </p>
+                            <p class="date1">28/12/2020</p>
+                        </div>
+                        <div class="col-sm">
+                            <p class="date">ID Report : </p>
+                            <p class="date1">#120</p>
+                        </div>
+                        <div class="col-sm">
+                            <p class="date">Project name : </p>
+                            <p class="date1">Numtip</p>
+                        </div>
+                        <div class="col-sm">
+                            <p class="date" >Tester : </p>
+                            <p class="date1">เรณุกา บุตรดา</p>
+                        </div>
+                        <div >
+                            <p class="f3">Status : </p>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Backlog</option>
+                                <option value="1">Doing</option>
+                                <option value="2">Ready for Test</option>
+                                <option value="3">Done</option>
+                            </select>
+                        </div>
+                        <div style="padding-top: 3%;">
+                            <p class="f3">Severity : </p>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>None</option>
+                                <option value="1">Critical</option>
+                                <option value="2">Major</option>
+                                <option value="3">Normal</option>
+                                <option value="4">Minor</option>
+                            </select>
+                        </div>
+                        <div>
+                            <p class="f3">Due Date : </p>
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                    <input class="form-control" placeholder="yyyy-mm-dd"
+                                            name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button" >
+                                            <i class='bx bx-calendar' style="font-size: 20px;"></i></button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- <hr/>
+                            <pre>Model: {{ model | json }}</pre> -->
+                        </div>
+                        <div style="padding-top: 3%;">
+                            <p class="f3">Assignees : </p>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>None</option>
+                                <option value="1">Hathaichanok</option>
+                                <option value="2">Renuka</option>
+                                <option value="3">Jutarmart</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-sm-6" style="padding-left: 5%;">
+                        <!-- <div>
+                            <p class="f3">Title : </p>
+                            <div class="input-group form-group" >
+                                <div class="table_width">
+                                    <input type="text" class="form-control" placeholder="Title" >
+                                </div>
+                                
+                            </div>
+                        </div> -->
+                        <div>
+                            <p class="f3">Environment Details : </p>
+                            <div class="input-group form-group">
+                                <div class="table_width">
+                                    <!-- <input type="text" class="form-control" placeholder="Environment Details" > -->
+                                    <textarea class="form-control" id="message-text" placeholder="Environment Details" ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="f3">Step to reproduct : </p>
+                            <div class="input-group form-group" >                      
+                                <div class="table_width">
+                                    <!-- <input type="text" class="form-control" placeholder="Step to reproduct" > -->
+                                    <textarea class="form-control" id="message-text" placeholder="Step to reproduct" ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="f3">Actual Result : </p>
+                            <div class="input-group form-group">
+                                <div class="table_width">
+                                <!-- <input type="text" class="form-control" placeholder="Actual Result" > -->
+                                <textarea class="form-control" id="message-text" placeholder="Actual Result" ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="f3">Expected Result : </p>
+                            <div class="input-group form-group">
+                                <div class="table_width">
+                                <!-- <input type="text" class="form-control" placeholder="Expected Result" > -->
+                                <textarea class="form-control" id="message-text" placeholder="Expected Result" >gfudygudyhgidrtguh</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="f3">Attachment : </p>
+
+                            <div class="input-group form-group" >
+                                <div class="table_width" >
+                                    <img style="width: 400px;" src="/assets/images/tsett.png" alt="">
+                                    <!-- <input type="file"  class="form-control" (change)="onFileSelected($event)"> -->
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                
+                        
+                    </div>
+
+                    
+                    
+                </div>
+                
+            </div>
+
+        
+        </mat-dialog-content>
+
+        <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close style="background-color: rgb(221, 33, 33);">Refuse</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial style="background-color: rgb(39, 221, 33);">Accept</button>
+        </mat-dialog-actions>
+
+    </body>
+</html>
+
