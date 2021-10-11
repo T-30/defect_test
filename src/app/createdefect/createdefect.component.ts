@@ -13,6 +13,19 @@ export class CreatedefectComponent implements OnInit {
   
   model: any;
 
+  title_name: any;
+  environment: any;
+  step_to_reproduce: any;
+  actual_result: any;
+  expected_result: any;
+  attachment: any;
+  
+  due_date: any;
+  status: any;
+  severity: any;
+  assignees: any;
+
+
   constructor(
     private router : Router
   ) { 

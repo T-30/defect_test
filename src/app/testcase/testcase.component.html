@@ -90,9 +90,6 @@
                         <h2 style="width: 300px; height: 20px; padding-left: 20px;">Create testcase</h2>
 
                         <div class="ph-float">
-                            <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" 
-                            class='ph-button ph-btn-red'>CANCEL</button> -->
-
                             <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" 
                             class='ph-button ph-btn-green' >add</button>
                         </div> 
@@ -118,40 +115,41 @@
                             <td mat-cell *matCellDef="let element"> {{element.modulename}} </td>
                           </ng-container>
                         
-                          <!-- testcase id Column -->
+                          <!-- No.TC id Column -->
                           <ng-container matColumnDef="testcaseID">
                             <th mat-header-cell *matHeaderCellDef> No.TC </th>
                             <td mat-cell *matCellDef="let element"> {{element.testcaseID}} </td>
                           </ng-container>
-                        
-                          <!-- Symbol Column -->
-                          <ng-container matColumnDef="testcases">
-                            <th mat-header-cell *matHeaderCellDef> TestCase </th>
-                            <td mat-cell *matCellDef="let element"> {{element.testcases}} </td>
-                          </ng-container>
 
-                          <!-- Symbol Column -->
+                          <!-- TestData Column -->
                           <ng-container matColumnDef="testdata">
                             <th mat-header-cell *matHeaderCellDef> TestData </th>
                             <td mat-cell *matCellDef="let element"> {{element.testdata}} </td>
                           </ng-container>
 
-                          <!-- Symbol Column -->
+                          <!-- TestStep Column -->
                           <ng-container matColumnDef="teststep">
                             <th mat-header-cell *matHeaderCellDef> TestStep </th>
                             <td mat-cell *matCellDef="let element"> {{element.teststep}} </td>
                           </ng-container>
                           
-                          <!-- Symbol Column -->
+                          <!-- ExpectedResult Column -->
                           <ng-container matColumnDef="expectedresult">
                             <th mat-header-cell *matHeaderCellDef> ExpectedResult </th>
                             <td mat-cell *matCellDef="let element"> {{element.expectedresult}} </td>
                           </ng-container>
                           
-                          <!-- Symbol Column -->
+                          <!-- Status Column -->
                           <ng-container matColumnDef="status">
                             <th mat-header-cell *matHeaderCellDef> Status </th>
                             <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                          </ng-container>
+
+                                                  
+                          <!-- TestCase Column -->
+                          <ng-container matColumnDef="remark">
+                            <th mat-header-cell *matHeaderCellDef> Remark </th>
+                            <td mat-cell *matCellDef="let element"> {{element.remark}} </td>
                           </ng-container>
 
                         
@@ -165,7 +163,79 @@
 
                 </mat-drawer-content>
             </mat-drawer-container>
-        </div>       
+
+            <div class="w3-container">
+                <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button> -->
+            
+                <div id="id01" class="w3-modal" >
+                    <div class="w3-modal-content" >
+                        <div class="card">
+                            <div class="card-header">
+                                <span onclick="document.getElementById('id01').style.display='none'" 
+                                    class="w3-button w3-display-topright" >&times;</span>
+                                    <h2 class="f2">Add testcase</h2>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div>
+                                        <p class="f3">Module Name : </p>
+                                        <div class="input-group form-group">
+                                            <input type="text" class="form-control" name="modulename" id="" 
+                                            [(ngModel)]="modulename"  placeholder="module name">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="f3">Test Data : </p>
+                                        <div class="input-group form-group">
+                                            <input type="text" class="form-control" name="testdata" id="" 
+                                            [(ngModel)]="testdata" placeholder="test data">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="f3">Test Step : </p>
+                                        <div class="input-group form-group">
+                                            <input type="text" class="form-control" name="teststep" id="" 
+                                            [(ngModel)]="teststep" placeholder="test step">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="f3">Expectedresult : </p>
+                                        <div class="input-group form-group">
+                                            <input type="text" class="form-control" name="expectedresult" id="" 
+                                            [(ngModel)]="expectedresult" placeholder="expectedresult">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="f3">Remark : </p>
+                                        <div class="input-group form-group">
+                                            <input type="text" class="form-control" name="remark" id="" 
+                                            [(ngModel)]="remark" placeholder="remark">
+                                        </div>
+                                    </div>
+
+                                    <footer class="line">
+                                        <div style="padding-top: 2%;" align="end">
+                                            <a routerLink="/testcase">
+                                                <input onclick="document.getElementById('id01').style.display='none'"  
+                                                    type="submit" value="Submit" class="btn float-left sub_btn" >
+                                            </a>
+
+                                            <span onclick="document.getElementById('id01').style.display='none'" 
+                                            class="btn float-left cancel_btn" >Cancel</span>
+                                            <!-- <a routerLink="/homepro">
+                                                <input onclick="document.getElementById('id01').style.display='none'" type="submit" value="Cancle" class="btn float-right cancel_btn" >
+                                            </a> -->
+                                        </div> 
+                                    </footer>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+        </div>
+
     </body>
 </html>
 

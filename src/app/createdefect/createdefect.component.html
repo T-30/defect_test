@@ -75,7 +75,7 @@
                                     <li>
                                         <a (click)="exit()">
                                             <i class='bx bx-exit' ></i>
-                                            <span class="links_exit">EXIT</span>
+                                            <span class="links_exit">Exit Project</span>
                                         </a>
                                     </li>
                                 </div>
@@ -126,42 +126,49 @@
                                 <div>
                                     <p class="f3">Title : </p>
                                     <div class="input-group form-group" >
-                                        <input type="text" class="form-control" placeholder="Title" >
+                                        <!-- <input type="text" class="form-control" placeholder="Title" > -->
+                                        <input type="text" class="form-control" name="title_name" id=""
+                                        [(ngModel)]="title_name" placeholder="Title">
                                     </div>
                                 </div>
                                 <div>
                                     <p class="f3">Environment Details : </p>
                                     <div class="input-group form-group" >
                                         <!-- <input type="text" class="form-control" placeholder="Environment Details" > -->
-                                        <textarea class="form-control" id="message-text" placeholder="Environment Details" ></textarea>
+                                        <textarea class="form-control" name="title" id="message-text"
+                                        [(ngModel)]="environment" placeholder="Environment Details" ></textarea>
                                     </div>
                                 </div>
                                 <div>
                                     <p class="f3">Step to reproduct : </p>
                                     <div class="input-group form-group" >
                                         <!-- <input type="text" class="form-control" placeholder="Step to reproduct" > -->
-                                        <textarea class="form-control" id="message-text" placeholder="Step to reproduct" ></textarea>
+                                        <textarea class="form-control" name="step_to_reproduce" id="message-text"
+                                        [(ngModel)]="step_to_reproduce"  placeholder="Step to reproduct" ></textarea>
                                     </div>
                                 </div>
                                 <div>
                                     <p class="f3">Actual Result : </p>
                                     <div class="input-group form-group" >
                                         <!-- <input type="text" class="form-control" placeholder="Actual Result" > -->
-                                        <textarea class="form-control" id="message-text" placeholder="Actual Result" ></textarea>
+                                        <textarea class="form-control" name="actual_result" id="message-text"
+                                        [(ngModel)]="actual_result" placeholder="Actual Result" ></textarea>
                                     </div>
                                 </div>
                                 <div>
                                     <p class="f3">Expected Result : </p>
                                     <div class="input-group form-group" >
                                         <!-- <input type="text" class="form-control" placeholder="Expected Result" > -->
-                                        <textarea class="form-control" id="message-text" placeholder="Expected Result" ></textarea>
+                                        <textarea class="form-control" name="expected_result" id="message-text"
+                                        [(ngModel)]="expected_result" placeholder="Expected Result" ></textarea>
                                     </div>
                                 </div>
                                 <div>
                                     <p class="f3">Attachment : </p>
 
                                     <div class="input-group form-group" >
-                                        <input type="file"  class="form-control"(change)="onFileSelected($event)">
+                                        <input type="file"  class="form-control" name="attachment" id="message-text"
+                                        [(ngModel)]="attachment"(change)="onFileSelected($event)">
                                     </div>
                                 </div>
 
@@ -194,7 +201,7 @@
 
                             <div class="col-sm-3" style="padding-left: 6%; padding-top: 0.5%;">
                                 <div>
-                                    <p class="f3">Expected Result : </p>
+                                    <p class="f3">Due Date : : </p>
                                     <form class="form-inline">
                                         <div class="form-group">
                                             <div class="input-group">
@@ -211,7 +218,7 @@
                                     <pre>Model: {{ model | json }}</pre> -->
                                 </div>
                                 <div style="padding-top: 3%;">
-                                    <p class="f3">Expected Result : </p>
+                                    <p class="f3">Assignees : </p>
                                     <select class="form-select" aria-label="Default select example">
                                         <option selected>None</option>
                                         <option value="1">Hathaichanok</option>

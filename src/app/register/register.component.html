@@ -25,53 +25,52 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="username">
+                                    <input type="text" class="form-control" id="" [(ngModel)]="username" placeholder="username">
                                 </div>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="name">
+                                    <input type="text" class="form-control" id="" [(ngModel)]="name" placeholder="name">
                                 </div>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="lastname">
+                                    <input type="text" class="form-control" id="" [(ngModel)]="lastname" placeholder="lastname">
                                 </div>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="password">
+                                    <input type="password" class="form-control" id="" [(ngModel)]="password" placeholder="password">
                                 </div>
                                 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><img src="\assets\images\phone-call.png" alt="" style="width: 1pc; height: 1pc;"></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="phone"> 
+                                    <input type="text" class="form-control" id="" [(ngModel)]="phone" placeholder="phone"> 
                                 </div>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" aria-label="Default select example" id="" [(ngModel)]="position">
                                         <option selected>Select Position</option>
                                         <option value="1">Project Manager</option>
                                         <option value="2">Tester</option>
                                         <option value="3">Developer</option>
                                     </select>
                                 </div>
-                                <div class="input-group form-group">
+                                <!-- <div class="input-group form-group">
                                     
                                     
                                     <div class="text-center">
                                         <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                                        <!-- <h6>Upload a different photo...</h6> -->
                                         <input type="file" name="file">
                                     </div>
-                                </div>
+                                </div> -->
                                 
                                 <div >
                                     <a (click)="submit()">

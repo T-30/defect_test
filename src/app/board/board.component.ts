@@ -13,6 +13,16 @@ import { ShowdefectComponent } from '../showdefect/showdefect.component';
 })
 export class BoardComponent implements OnInit {
 
+  titel_name: any;
+  environment: any;
+  step_to_reproduce: any;
+  actual_result: any;
+  expected_result: any;
+  due_date: any;
+  status: any;
+  severity: any;
+  assignees: any;
+
   constructor(
     private router : Router,
     public dialog : MatDialog
@@ -21,7 +31,7 @@ export class BoardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-   openDialog() {
+  openDialog() {
     const dialogRef = this.dialog.open(ShowdefectComponent);
 
     dialogRef.afterClosed().subscribe(result => {

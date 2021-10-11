@@ -270,3 +270,11 @@
   table {
     width: 100%;
   }
+
+  .card-body{
+    width: 500px;
+  }
+
+  .w3-modal-content{
+    width: 500px;
+  }

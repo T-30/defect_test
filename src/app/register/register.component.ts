@@ -10,6 +10,15 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
+  username: any;
+  name: any;
+  lastname: any;
+  password: any;
+  phone: any;
+  position: any;
+  photo: any;
+
+
   constructor(
     private router : Router
     

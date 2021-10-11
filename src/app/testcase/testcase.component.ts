@@ -9,8 +9,19 @@ import { Router } from '@angular/router';
 export class TestcaseComponent implements OnInit {
   model: any 
   displayedColumns: string[] = ['testmoduleID', 'modulename', 'testcaseID', 
-                                'testcases', 'testdata', 'teststep', 'expectedresult', 'status'];
+                                'testdata', 'teststep', 'expectedresult', 'status','remark'];
   dataSource = ELEMENT_DATA;
+  dialog: any;
+
+  // testmoduleID: any;
+  modulename: any;
+  // testcases: any;
+  testdata: any;
+  teststep: any;
+  expectedresult: any;
+  status: any;
+  remark: any;
+
 
   constructor(
     private router : Router
@@ -38,24 +49,26 @@ export class TestcaseComponent implements OnInit {
     this.router.navigateByUrl('/home')
   }
 
+  
+
 }
 export interface PeriodicElement {
   modulename: string;
   testmoduleID: number;
   testcaseID: number;
-  testcases: string;
   testdata: string;
   teststep: string;
   expectedresult: string;
   status: string;
+  remark: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {testmoduleID: 1, modulename: 'Hydrogen', testcaseID: 1, 
-  testcases: 'Hmnkj', testdata: 'Hiiii', teststep: 'Hedd', expectedresult: 'Hedd', status: 'pass'},
+  {testmoduleID: 1, modulename: 'Hydrogen', testcaseID: 1, testdata: 'Hiiii', teststep: 'Hedd', 
+  expectedresult: 'Hedd', status: 'pass', remark: 'Hmnkj'},
 
-  {testmoduleID: 1, modulename: 'Hydrogen', testcaseID: 2, 
-  testcases: 'lodhfjdf', testdata: 'sssHe', teststep: 'Hessddd', expectedresult: 'gdsg', status: 'pass'},
+  {testmoduleID: 1, modulename: 'Hydrogen', testcaseID: 2, testdata: 'sssHe', teststep: 'Hessddd', 
+  expectedresult: 'gdsg', status: 'pass', remark: 'dsgfdsjgoi'},
   // {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H',testdata: 'tserr'},
   // {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
   // {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},

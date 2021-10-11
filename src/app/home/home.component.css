@@ -9,7 +9,8 @@ html {
 }
 
 .bg {
-  background-color:#f8b7b7 ;
+  /* background-color:#f8b7b7 ; */
+  background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
   height: 100vh;
   /* Center and scale the image nicely */
   background-position: center;
@@ -207,6 +208,7 @@ html {
   margin-top:10px;
   margin-bottom:10px;
   background-color:rgb(214, 213, 213);
+  /* background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg"); */
 }
 
 .card:hover {

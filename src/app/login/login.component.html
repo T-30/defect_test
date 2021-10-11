@@ -25,20 +25,23 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" id="" [(ngModel)]="username" placeholder="username">
+                                    <input type="text" class="form-control" name="username" id=""
+                                    [(ngModel)]="username" placeholder="username">
                                     
                                 </div><br>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" id="" [(ngModel)]="password" placeholder="password">
+                                    <input type="password" class="form-control" name="password" id="" 
+                                    [(ngModel)]="password" placeholder="password">
                                 </div><br/>
                                 <div >
-                                    <button class="btn float-right login_btn" (click)="showName()">login</button>
+                                    <button class="btn float-right login_btn" (click)="logi()">login</button>
                                     <button class="btn float-right reg_btn" (click)="regis()">Register</button>
 
-                                    <button class="btn float-right login_btn" (click)="logi()">log</button>
+                                    <button class="btn float-right login_btn" (click)="login()">log</button>
+                                    <!-- <button class="btn float-right login_btn" (click)="loginn()">log1</button> -->
                                      
                                 </div> 
                                 <!-- <div class="but">
