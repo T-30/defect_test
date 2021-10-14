@@ -324,3 +324,41 @@
   }
   
     /* -------------------------------------------- */
+    .w3-modal{
+      padding-top: 10px;
+    }
+
+    .date{
+      display: inline;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+    }
+    
+    .date1{
+      display: inline;
+      padding: 2%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+    }
+    
+    .f3{
+      /* display: inline; */
+      padding-top: 2%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+    }
+    .f4{
+      /* display: inline; */
+      padding-top: 1%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  

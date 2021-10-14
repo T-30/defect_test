@@ -13,14 +13,28 @@
             <nav class="navbar navbar-light " style="background-color: #DA5D5D;">
                 <!-- Navbar content -->
                 <div class="ph-float">
-                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class='ph-button ph-btn-green'>Create Project</button>
-                </div> 
-                
+                    <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class='ph-button ph-btn-green'>Create Project</button> -->
+                </div>     
             </nav>
-            
 
             <!-- Search form -->
-            <div class="sh-float" >
+            <div class="row">
+                <div class="col-4">
+                </div>
+                <div class="col-4" >
+                    <div class="md-form mt-0" style="width: 200px; padding-top: 5%;" >
+                        <span class="material-icons-outlined"></span>
+                    <input class="form-control mr-sm-2" style="width: 200%;" type="text" placeholder="Search for Project by name">
+                    
+                    </div>
+                    <form class="form-inline waves-light" >
+                        
+                    </form> 
+                </div>
+                <div class="col-4">
+                </div>
+              </div>
+            <!-- <div class="sh-float" >
                 <form class="form-inline waves-light" >
                     <div class="md-form mt-0" >
                         <span class="material-icons-outlined"></span>
@@ -28,23 +42,19 @@
                     
                     </div>
                 </form> 
-            </div>
+            </div> -->
+
             <!-- <div class="line1" ></div> -->
             <div style="padding-top: 5%;" >
                 <div class="row justify-content-center">
                     <div class="col-3">
-                        <div class="ca
-                        
-                        
-                        
-                        
-                        rd" (click)="homepro()" style="width: 18rem;">
+                        <div class="card" (click)="homepro()" style="width: 18rem;">
                             <div class="card-inner">
                                 <div class="header">
                                     <h2>น้ำทิพท์</h2>
                                 </div>
                                 <div class="content">
-                                    <p>Content area</p>
+                                    <p>เว็บไซต์น้ำดื่ม</p>
                                 </div>
                                 <div align="end">
                                     <i class="fas fa-lock-open"></i>
@@ -56,10 +66,10 @@
                         <div class="card" (click)="homepro()" style="width: 18rem;">
                              <div class="card-inner">
                                 <div class="header">
-                                    <h2>น้ำgx]jk</h2>
+                                    <h2>แป๊บซี่</h2>
                                 </div>
                                 <div class="content">
-                                    <p>Content area</p>
+                                    <p>เว็บไซต์น้ำอัดลม</p>
                                 </div>
                                 <div align="end">
                                     <i class="fas fa-lock"></i>
@@ -74,7 +84,7 @@
                                     <h2>น้ำสิงห์</h2>
                                 </div>
                                 <div class="content">
-                                    <p>Content area</p>
+                                    <p>เว็บไซต์น้ำดื่ม</p>
                                 </div>
                                 <div align="end">
                                     <i class="fas fa-lock"></i>
@@ -88,10 +98,10 @@
                         <div class="card" (click)="homepro()" style="width: 18rem;">
                             <div class="card-inner">
                                 <div class="header">
-                                    <h2>น้ำทิพท์</h2>
+                                    <h2>โค้ก</h2>
                                 </div>
                                 <div class="content">
-                                    <p>Content area</p>
+                                    <p>เว็บไซต์น้ำอัดลม</p>
                                 </div>
                                 <div align="end">
                                     <i class="fas fa-lock-open"></i>
@@ -99,36 +109,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="card" (click)="homepro()" style="width: 18rem;">
-                             <div class="card-inner">
-                                <div class="header">
-                                    <h2>น้ำgx]jk</h2>
-                                </div>
-                                <div class="content">
-                                    <p>Content area</p>
-                                </div>
-                                <div align="end">
-                                    <i class="fas fa-lock"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="card" (click)="homepro()" style="width: 18rem;">
-                             <div class="card-inner">
-                                <div class="header">
-                                    <h2>น้ำสิงห์</h2>
-                                </div>
-                                <div class="content">
-                                    <p>Content area</p>
-                                </div>
-                                <div align="end">
-                                    <i class="fas fa-lock"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 
                 
@@ -154,10 +135,15 @@
                                     <div class="input-group form-group">
                                         <input type="text" class="form-control" placeholder="project name">
                                     </div>
+                                    <p class="f3">Details</p>
+                                    <div class="input-group form-group">
+                                        <input type="text" class="form-control" placeholder="details">
+                                    </div>
                                     <p class="f3">Project Manager</p>
                                     <div class="input-group form-group">
-                                        <input type="text" class="form-control" placeholder="project manager">
+                                        <input type="text" class="form-control" placeholder="เรณุกา" >
                                     </div>
+
                                     <div class="input-group form-group" style="display: inline;">
                                         <i class="fas fa-user" style="size: 20px;"></i>
                                         <p class="f3" style="display: inline; padding: 2%;">Add Member</p>
@@ -174,13 +160,14 @@
                                     </div>
 
                                     <footer class="line">
-                                        <div style="padding-top: 2%;">
-                                            <a routerLink="/home">
+                                        <div style="padding-top: 2%;" >
+                                            <a (click)="home()">
                                                 <input onclick="document.getElementById('id01').style.display='none'"  type="submit" value="Submit" class="btn float-left sub_btn" >
                                             </a>
-                                            <a routerLink="/home">
+                                            
+                                            <!-- <a routerLink="/home">
                                                 <input onclick="document.getElementById('id01').style.display='none'" type="submit" value="Cancle" class="btn float-right cancel_btn" >
-                                            </a>
+                                            </a> -->
                                         </div> 
                                     </footer>
                                     

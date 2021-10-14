@@ -16,7 +16,7 @@
         <div class="bg" >  
             <mat-drawer-container class="bg" >
                 <mat-drawer #drawer mode="side" opened>
-                    <h1></h1>
+                    <h1>น้ำทิพท์</h1>
                     <mat-list role="list" class="side-bar">
                         <div class="sidesbar">
                             <div class="sidesbar_details">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="sidesbar">
+                        <!-- <div class="sidesbar">
                             <div class="sidesbar_details">
                                 <div class="sidesbar_job">
                                     <li>
@@ -65,13 +65,11 @@
                                     </li>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                  
-                    </mat-list>
-                        <div class="exit">
-                            <div class="exit_details">
-                                <div class="exit_ex">
+                        <div class="sidesbar">
+                            <div class="sidesbar_details">
+                                <div class="sidesbar_job">
                                     <li>
                                         <a (click)="exit()">
                                             <i class='bx bx-exit' ></i>
@@ -82,6 +80,10 @@
                                 
                             </div>
                         </div>
+
+                  
+                    </mat-list>
+                        
                 </mat-drawer>
             
                 <mat-drawer-content>
@@ -90,11 +92,10 @@
                         <h2 style="width: 300px; height: 20px; padding-left: 20px;">Create New Defect</h2>
 
                         <div class="ph-float">
-                            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" 
-                            class='ph-button ph-btn-red'>CANCEL</button>
+                            <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" 
+                            class='ph-button ph-btn-red'>CANCEL</button> -->
 
-                            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" 
-                            class='ph-button ph-btn-green' >SAVE</button>
+                            <button class='ph-button ph-btn-green' >Add Defect</button>
                         </div> 
                     
                     </div>

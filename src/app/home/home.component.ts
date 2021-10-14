@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
 
   click : boolean = false;
 
+
+
   constructor(
     private router : Router,
     private dataname : DatalogService
@@ -29,6 +31,10 @@ export class HomeComponent implements OnInit {
 
   homepro(){
     this.router.navigateByUrl('/homepro')
+  }
+
+  home(){
+    this.router.navigateByUrl('/home')
   }
 
 }

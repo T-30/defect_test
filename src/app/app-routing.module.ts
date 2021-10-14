@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { RegistersComponent } from './registers/registers.component';
 import { TestcaseComponent } from './testcase/testcase.component';
 import { ShowdefectComponent } from './showdefect/showdefect.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'header', component: HeaderComponent},
   {path: 'regis', component: RegistersComponent},
   {path: 'testcase', component: TestcaseComponent},
-  {path: 'showdefect', component: ShowdefectComponent}
+  {path: 'showdefect', component: ShowdefectComponent},
+  {path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({

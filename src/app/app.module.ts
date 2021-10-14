@@ -35,6 +35,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ShowdefectComponent } from './showdefect/showdefect.component';
 import { TestcaseComponent } from './testcase/testcase.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
 
 // const appRoutes: Routes = [];
 
@@ -52,6 +53,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegistersComponent,
     ShowdefectComponent,
     TestcaseComponent,
+    ProfileComponent,
     
   ],
   imports: [

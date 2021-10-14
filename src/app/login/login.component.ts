@@ -12,12 +12,15 @@ export class LoginComponent implements OnInit {
   public input: any;
   username: any;
   password: any;
+  name: any;
 
   constructor(
     private router : Router,
     // private datauser : DatalogService,
     private http : HttpClient
-  ){}
+  ){
+    
+  }
 
   ngOnInit(): void {
   }
@@ -27,14 +30,20 @@ export class LoginComponent implements OnInit {
   }
  
   login(){
-    let json = {username: this.username, password: this.password};
+    console.log('pass');
+    let json = {username: this.username, password: this.password}
 
-    this.http.post('http://report.comsciproject.com/report/login/', JSON.stringify(json))
+    console.log(this.username);
+    console.log(this.password);
+    
+    this.http.post('http://report.comsciproject.com/report/login', JSON.stringify(json))
       .subscribe(response => {
+      console.log(response);
       console.log('success');
       this.router.navigateByUrl('/home')
-    },error => {
+    },error => { 
       console.log('fail');
+      console.log(error);
     });
   }
 
@@ -43,6 +52,16 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/home')
   }
   
+  user(){
+    // let json = {name: this.username}
+    this.http.get('http://report.comsciproject.com/report/emp')
+    .subscribe(data => {
+      console.log(data);
+    },error => {
+      console.log('fail');
+      console.log(error);
+    });
+  }
 
   // public loginn() {
   // let request = this.http.get('http://localhost:4200/login');

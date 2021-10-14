@@ -16,7 +16,7 @@
         <div class="bg" >  
             <mat-drawer-container class="bg" >
                 <mat-drawer #drawer mode="side" opened>
-                    <h1></h1>
+                    <h1>น้ำทิพท์</h1>
                     <mat-list role="list" class="side-bar">
                         <div class="sidesbar">
                             <div class="sidesbar_details">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="sidesbar">
+                        <!-- <div class="sidesbar">
                             <div class="sidesbar_details">
                                 <div class="sidesbar_job">
                                     <li>
@@ -65,23 +65,37 @@
                                     </li>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                  
-                    </mat-list>
-                        <div class="exit">
-                            <div class="exit_details">
-                                <div class="exit_ex">
+                        <div class="sidesbar">
+                            <div class="sidesbar_details">
+                                <div class="sidesbar_job">
                                     <li>
                                         <a (click)="exit()">
                                             <i class='bx bx-exit' ></i>
-                                            <span class="links_exit">EXIT</span>
+                                            <span class="links_exit">Exit Project</span>
                                         </a>
                                     </li>
                                 </div>
                                 
                             </div>
                         </div>
+
+                  
+                    </mat-list>
+                        <!-- <div class="exit">
+                            <div class="exit_details">
+                                <div class="exit_ex">
+                                    <li>
+                                        <a (click)="exit()">
+                                            <i class='bx bx-exit' ></i>
+                                            <span class="links_exit">Exit Project</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                
+                            </div>
+                        </div> -->
                 </mat-drawer>
             
                 <mat-drawer-content>
@@ -199,7 +213,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="f3">Expectedresult : </p>
+                                        <p class="f3">Expected Result : </p>
                                         <div class="input-group form-group">
                                             <input type="text" class="form-control" name="expectedresult" id="" 
                                             [(ngModel)]="expectedresult" placeholder="expectedresult">

@@ -20,7 +20,8 @@ export class RegisterComponent implements OnInit {
 
 
   constructor(
-    private router : Router
+    private router : Router,
+    private http: HttpClient
     
     // private http : HttpClient
   ) { }
@@ -28,8 +29,41 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(){
+  submit1(){
     this.router.navigateByUrl('/login')
   }
+
+  submit(){
+    let json = {username: this.username, name: this.name, lastname: this.lastname, password: this.password, 
+                phone: this.phone, position_id: this.position, photo: this.photo};
+
+  
+  console.log(json);
+
+    this.http.post('http://report.comsciproject.com/report/register', JSON.stringify(json))
+      .subscribe(response => {
+      console.log('success');
+      this.router.navigateByUrl('/login')
+    },error => {
+      console.log(error);
+      console.log('fail');
+    }); 
+  }
+
+  getFile(event : any) {
+    const reader = new FileReader();
+    
+    if(event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+    
+      reader.onload = () => {
+        // console.log(reader.result);
+        this.photo = reader.result;
+      };
+   
+    }
+  }
+
 
 }
