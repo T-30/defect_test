@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   phone: any;
   position: any;
   photo: any;
+  imgPreview : any;
 
 
   constructor(
@@ -27,9 +28,10 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.imgPreview = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
   }
 
-  submit1(){
+  cancel(){
     this.router.navigateByUrl('/login')
   }
 
@@ -60,6 +62,7 @@ export class RegisterComponent implements OnInit {
       reader.onload = () => {
         // console.log(reader.result);
         this.photo = reader.result;
+        this.imgPreview =reader.result;
       };
    
     }

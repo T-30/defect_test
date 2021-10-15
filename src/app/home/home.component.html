@@ -12,27 +12,24 @@
         <div class="bg">  
             <nav class="navbar navbar-light " style="background-color: #DA5D5D;">
                 <!-- Navbar content -->
-                <div class="ph-float">
-                    <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class='ph-button ph-btn-green'>Create Project</button> -->
+                <div class="ph-float" >
+                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" 
+                    class='ph-button ph-btn-green' *ngIf="isPM">Create Project</button>
                 </div>     
             </nav>
 
             <!-- Search form -->
             <div class="row">
-                <div class="col-4">
-                </div>
+                <div class="col-4"></div>
                 <div class="col-4" >
                     <div class="md-form mt-0" style="width: 200px; padding-top: 5%;" >
                         <span class="material-icons-outlined"></span>
                     <input class="form-control mr-sm-2" style="width: 200%;" type="text" placeholder="Search for Project by name">
                     
                     </div>
-                    <form class="form-inline waves-light" >
-                        
-                    </form> 
+                    <form class="form-inline waves-light" ></form> 
                 </div>
-                <div class="col-4">
-                </div>
+                <div class="col-4"></div>
               </div>
             <!-- <div class="sh-float" >
                 <form class="form-inline waves-light" >
@@ -47,14 +44,14 @@
             <!-- <div class="line1" ></div> -->
             <div style="padding-top: 5%;" >
                 <div class="row justify-content-center">
-                    <div class="col-3">
-                        <div class="card" (click)="homepro()" style="width: 18rem;">
-                            <div class="card-inner">
+                    <div class="col-3" *ngFor="let project of this.allproject">
+                        <div class="card1" (click)="homepro()" style="width: 18rem;">
+                            <div class="card-inner" >
                                 <div class="header">
-                                    <h2>น้ำทิพท์</h2>
+                                    <h2>{{project.name}}</h2>
                                 </div>
                                 <div class="content">
-                                    <p>เว็บไซต์น้ำดื่ม</p>
+                                    <p>{{project.detials}}</p>
                                 </div>
                                 <div align="end">
                                     <i class="fas fa-lock-open"></i>
@@ -62,54 +59,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="card" (click)="homepro()" style="width: 18rem;">
-                             <div class="card-inner">
-                                <div class="header">
-                                    <h2>แป๊บซี่</h2>
-                                </div>
-                                <div class="content">
-                                    <p>เว็บไซต์น้ำอัดลม</p>
-                                </div>
-                                <div align="end">
-                                    <i class="fas fa-lock"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="card" (click)="homepro()" style="width: 18rem;">
-                             <div class="card-inner">
-                                <div class="header">
-                                    <h2>น้ำสิงห์</h2>
-                                </div>
-                                <div class="content">
-                                    <p>เว็บไซต์น้ำดื่ม</p>
-                                </div>
-                                <div align="end">
-                                    <i class="fas fa-lock"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-3">
-                        <div class="card" (click)="homepro()" style="width: 18rem;">
-                            <div class="card-inner">
-                                <div class="header">
-                                    <h2>โค้ก</h2>
-                                </div>
-                                <div class="content">
-                                    <p>เว็บไซต์น้ำอัดลม</p>
-                                </div>
-                                <div align="end">
-                                    <i class="fas fa-lock-open"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
                 
                 
@@ -129,20 +78,37 @@
                             </div>
                             <div class="card-body">
                                 <form>
-                                    <p class="date" style="display: inline;" >Date</p>
-                                    <p class="date1" >28/12/2020</p>
+                                    <!-- <p class="date" style="display: inline;" >Date</p>
+                                    <p class="date1">{{myDate | date: 'dd-MM-yyyy'}}</p> -->
+                                    <div class="input-group form-group" >
+                                        <div class="text-center" >
+                                            <img [src]="imgPreview" class="avatar img-circle img-thumbnail" 
+                                                    style="width: 100px; height: 100px;" alt="avatar">
+                                            <input type="file" class="file-upload" (change)="getFile($event)">
+                                        </div>
+                                    </div>
                                     <p class="f3">Project Name</p>
                                     <div class="input-group form-group">
-                                        <input type="text" class="form-control" placeholder="project name">
+                                        <input type="text" class="form-control" name="proname" id=""
+                                        [(ngModel)]="proname" placeholder="project name">
                                     </div>
                                     <p class="f3">Details</p>
                                     <div class="input-group form-group">
-                                        <input type="text" class="form-control" placeholder="details">
+                                        <textarea type="text" class="form-control" name="details" id=""
+                                        [(ngModel)]="prodetails" placeholder="details"></textarea>
                                     </div>
-                                    <p class="f3">Project Manager</p>
+
+                                    <!-- <p class="f3">Project Manager</p>
                                     <div class="input-group form-group">
-                                        <input type="text" class="form-control" placeholder="เรณุกา" >
-                                    </div>
+                                        <input type="text" class="form-control"name="details" id=""
+                                        [(ngModel)]="pm_id" placeholder="fdsf" >
+                                    </div> -->
+
+                                    <!-- <p class="f3">Status</p>
+                                    <div class="input-group form-group">
+                                        <input type="text" class="form-control" name="details" id=""
+                                        [(ngModel)]="prostatus" placeholder="Status">
+                                    </div> -->
 
                                     <div class="input-group form-group" style="display: inline;">
                                         <i class="fas fa-user" style="size: 20px;"></i>
@@ -152,7 +118,7 @@
 
                                     <p class="f4">Tester</p>
                                     <div class="input-group form-group">
-                                        <input type="text" class="form-control" placeholder="Tester name" > 
+                                        <input type="text" class="form-control" placeholder="Tester" >   
                                     </div>
                                     <p class="f4">Developer</p>
                                     <div class="input-group form-group">
@@ -161,8 +127,8 @@
 
                                     <footer class="line">
                                         <div style="padding-top: 2%;" >
-                                            <a (click)="home()">
-                                                <input onclick="document.getElementById('id01').style.display='none'"  type="submit" value="Submit" class="btn float-left sub_btn" >
+                                            <a (click)="create()">
+                                                <input  type="submit" value="Submit" class="btn float-left sub_btn" >
                                             </a>
                                             
                                             <!-- <a routerLink="/home">
@@ -176,34 +142,6 @@
                                 </form>
                             </div>
                         </div>
-
-                        <!-- <header class="w3-container w3-teal" class="pink"> 
-                        <span onclick="document.getElementById('id01').style.display='none'" 
-                        class="w3-button w3-display-topright" >&times;</span>
-                        <h2 class="f2">Create New Project</h2>
-                        </header>
-                    
-                        <div class="w3-container">
-                            <form action="">
-                                <p class="date" style="display: inline;" >Date</p>
-                                <p class="date1" >28/12/2020</p>
-                                <p class="f3">Project Name</p>
-                                <input type="text">
-                                <p class="f3">Project Manager</p>
-                                <input type="text">
-                                <img src="/assets/images/user.png" alt="">
-                                <p>Tester</p>
-                                <input type="text">
-                                <p>Developer</p>
-                                <input type="text">
-                            </form>
-                        
-                        </div>
-
-                        <footer class="w3-container w3-teal" class="pink" style="padding: 5px;">
-                        <p style="display: inline;">Modal Footer</p>
-                        <button style="display: inline;">create</button>
-                        </footer> -->
 
                     </div>
                 </div>

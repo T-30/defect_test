@@ -211,17 +211,27 @@ html {
   background-image: url("https://cdn.dribbble.com/users/11591/screenshots/3983410/media/b03033a9ed2ee48c423038135fe39dbe.png?compress=1&resize=800x600");
 }
 
+.card1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom:10px;
+  background-color:rgb(219, 177, 177);
+  
+}
+
 .card:hover {
   box-shadow: 0 5px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
-.card > .card-inner {
+.card1 > .card-inner {
   padding:10px;
 }
-.card .header h2, h3 {
+.card1 .header h2, h3 {
   margin-bottom: 0px;
   margin-top:0px;
 }
-.card .header {
+.card1 .header {
   margin-bottom:5px;
 }
 .card img{

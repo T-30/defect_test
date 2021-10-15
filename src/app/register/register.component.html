@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <!--Custom styles-->
         <link rel="stylesheet" type="text/css" href="register.component.css">
+        <!-- Box Icon -->
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     </head>
     <body>
         <div class="bg">  
@@ -23,7 +25,7 @@
                             <form>
                                 <div class="input-group form-group" >
                                     <div class="text-center" >
-                                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" 
+                                        <img [src]="imgPreview" class="avatar img-circle img-thumbnail" 
                                                 style="width: 100px; height: 100px;" alt="avatar">
                                         <!-- <input type="file" class="form-control" name="file" id="" (change)="getFile(event.target.files)" style="width: 360px;" > -->
                                         <input type="file" class="file-upload" (change)="getFile($event)">
@@ -56,17 +58,17 @@
                                 
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><img src="\assets\images\phone-call.png" alt="" style="width: 1pc; height: 1pc;"></span>
+                                        <span class="input-group-text"><i class='bx bx-phone'></i></span>
                                     </div>
                                     <input type="text" class="form-control" name="phone"  id="" [(ngModel)]="phone" placeholder="phone"> 
                                 </div>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                        <span class="input-group-text"><i class='bx bxs-select-multiple'></i></span>
                                     </div>
                                     <!-- <input type="text" id="" [(ngModel)]="position"> -->
-                                    <select class="form-select" aria-label="Default select example" name="position" [(ngModel)]="position" >
-                                        <option selected>Select Position</option>
+                                    <select class="form-select" name="position"  [(ngModel)]="position" placeholder="select" >
+                                        <!-- <option selected>Select Position</option> -->
                                         <option value="1">Project Manager</option>
                                         <option value="2">Tester</option>
                                         <option value="3">Developer</option>
@@ -78,7 +80,7 @@
                                     <a (click)="submit()">
                                         <input type="submit" value="Submit" class="btn float-left sub_btn">
                                     </a>
-                                    <a (click)="submit()">
+                                    <a (click)="cancel()">
                                         <input type="submit" value="Cancle" class="btn float-right cancel_btn" >
                                     </a>
                                 </div> 
