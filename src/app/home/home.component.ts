@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -15,6 +17,7 @@ export class HomeComponent implements OnInit {
   project : any;
   isPM : boolean = false;
   position:any;
+  searchText : any;
 
   proname : any;
   prodetails : any;
@@ -28,34 +31,89 @@ export class HomeComponent implements OnInit {
   myDate: Date = new Date();
   imgPreview : any;
 
+  dropdownListTest: Array<any> = [];
+  dropdownListDev: Array<any> = [];
+  emp_select: any =[];
+
+  dropdownSettings:IDropdownSettings={};
 
   constructor(
     private router : Router,
     private rout : ActivatedRoute,
     private http : HttpClient
-  ) {
-    // console.log(dataname.user[0].name);
-    this.username = rout.snapshot.params['username'];
-    console.log('user'+this.username);
-    
-    
-   }
+  ) {}
 
-  async ngOnInit(){
+  ngOnInit(){
 
     this.imgPreview = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
-    // let response:any = await this.getUser();
-    // console.log(response);
-    // let respon = await this.getPro();
-    // console.log(respon);
+
     if(sessionStorage.getItem("posi_id") == "1"){
       this.isPM = true;
     }
 
-    // this.fullname = response.name + ' ' + response.lastname;
-    var url='http://report.comsciproject.com/report/project/'+sessionStorage.getItem("emp_id");
-    console.log(url);
+    this.getproject_data();
+    this.getemp_data();
+
+    this.dropdownSettings = {
+      idField: 'item_id',
+      textField: 'item_text',
+      enableCheckAll: false,
+      allowSearchFilter: true
+    };
+  }
+
+  onItemSelect(item: any) {
+    console.log('onItemSelect', item);
+    this.emp_select.push({employee_id: item.item_id});
+    console.log(this.emp_select);
     
+  }
+
+  onItemDeSelect(item: any) {
+    console.log('onItemDeSelect', item);
+
+    this.emp_select = this.emp_select.filter(function( obj:any ) {
+      return obj.employee_id !== item.item_id;
+    });
+
+    console.log(this.emp_select);
+  }
+
+  getemp_data()  {
+    var url='http://report.comsciproject.com/report/empdata';
+    this.http.get(url).subscribe((data :any) => {
+      // console.log(JSON.stringify(res));
+      let json = JSON.parse(JSON.stringify(data));
+       
+      var tester = json.tester;
+      var dev = json.dev;
+
+      // console.log(json.tester);
+
+      var itemdev = [];
+      var itemtest = [];
+
+      for (var s of tester) {
+        itemtest.push({item_id: s.employee_id, item_text: s.name});  
+      }
+
+      for (var s of dev) {
+        itemdev.push({item_id: s.employee_id, item_text: s.name}); 
+      }
+
+      this.dropdownListDev = itemdev;
+      this.dropdownListTest = itemtest;
+      
+      // console.log(this.dev) 
+     
+     },error => { 
+       console.log(error);
+     });
+  }
+
+  getproject_data(){
+    var url='http://report.comsciproject.com/report/project/'+sessionStorage.getItem("emp_id");
+    console.log(url);  
     let res =  this.http.get(url)
     .subscribe((data :any) => {
       console.log(data);
@@ -65,20 +123,6 @@ export class HomeComponent implements OnInit {
       console.log(error);
     });
 
-    // let respon = this.http.get('http://report.comsciproject.com/report/empp')
-    // .subscribe((datauser :any) => {
-
-    //   // this.fullname = datauser.name + ' ' + datauser.lastname;
-    //   this.fullname = datauser;
-    //   console.log(datauser);
-      
-     
-    // },error => { 
-    //   console.log(error);
-    // });
-    
-    
-    
   }
 
   onButtonClick(){
@@ -87,25 +131,28 @@ export class HomeComponent implements OnInit {
   }
 
   homepro(){
-    this.router.navigateByUrl('/homepro')
+    this.router.navigateByUrl('/board')
   }
 
   create(){
-
-    let json = {name: this.proname, detials: this.prodetails, create_date: this.myDate, photo: this.prophoto, 
-                status: this.prostatus, pm_id: this.pm_id}
+    var pm_id = sessionStorage.getItem("emp_id");
+    let json = {name: this.proname, detials: this.prodetails, photo: this.prophoto, pm_id: pm_id ,employee_member: this.emp_select}
+    console.log(json);
 
     this.http.post('http://report.comsciproject.com/report/createproject', JSON.stringify(json))
       .subscribe((datapro :any) => {
-
-      // sessionStorage.setItem("emp_id", datapro.user_data[0].position_id);
-      // console.log(datapro.user_data[0].employee_id);
-      // console.log('login success');
+        Swal.fire({
+          icon: 'success',
+          title: 'Create Project Success!!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       
-      if(datapro){
-        this.router.navigateByUrl('/home');
+      if(datapro.status){
         console.log('pass');
-        
+        setTimeout(()=> {
+          window.location.reload();
+        },1000)    
       }else{
         console.log('create fail');
       }
@@ -113,9 +160,11 @@ export class HomeComponent implements OnInit {
     },error => { 
       console.log('fail');
       console.log(error);
-    });
+    }); 
     // this.router.navigateByUrl('/home')
+    
   }
+
 
   getFile(event : any) {
     const reader = new FileReader();
@@ -133,19 +182,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-    // async getUser(){
-  //   let response:any = await this.http.get('http://report.comsciproject.com/report/empp')
-  //   .toPromise();
-  //   this.fullname = response;
-    
-  //   return response;
-  // }
-
-  // async getPro(){
-  //   let respon = await this.http.get('http://report.comsciproject.com/report/project')
-  //   .toPromise();
-  //   return respon;
-  // }
 
 }
 

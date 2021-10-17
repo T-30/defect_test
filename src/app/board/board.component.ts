@@ -23,12 +23,20 @@ export class BoardComponent implements OnInit {
   severity: any;
   assignees: any;
 
+  username: any;
+
+  isPM : boolean = false;
+
   constructor(
     private router : Router,
     public dialog : MatDialog
   ) { }
 
   ngOnInit(): void {
+
+    if(sessionStorage.getItem("posi_id") == "1"){
+      this.isPM = true;
+    }
   }
 
   openDialog() {
@@ -53,33 +61,9 @@ export class BoardComponent implements OnInit {
     this.router.navigateByUrl('/testcase')
   }
   exit(){
-    this.router.navigateByUrl('/home')
+    this.router.navigateByUrl('/home');
   }
 
-  // todo = [
-  //   'Get to work',
-  //   'Pick up groceries',
-  //   'Go home',
-  //   'Fall asleep'
-  // ];
-
-  // done = [
-  //   'Get up',
-  //   'Brush teeth',
-  //   'Take a shower',
-  //   'Check e-mail',
-  //   'Walk dog'
-  // ];
-
-  // drop(event: CdkDragDrop<string[]>) {
-  //   if (event.previousContainer === event.container) {
-  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  //   } else {
-  //     transferArrayItem(event.previousContainer.data,
-  //                       event.container.data,
-  //                       event.previousIndex,
-  //                       event.currentIndex);
-  //   }
-  // }
 
 }
+ 

@@ -36,7 +36,8 @@ import { ShowdefectComponent } from './showdefect/showdefect.component';
 import { TestcaseComponent } from './testcase/testcase.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
-
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // const appRoutes: Routes = [];
 
 @NgModule({
@@ -77,7 +78,9 @@ import { ProfileComponent } from './profile/profile.component';
     MatMenuModule,
     MatBadgeModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    NgMultiSelectDropDownModule.forRoot(),
+    Ng2SearchPipeModule
     
     
   ],

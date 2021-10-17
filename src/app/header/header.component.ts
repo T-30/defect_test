@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
   profile(){
-    this.router.navigateByUrl('/home')
+    this.router.navigateByUrl('/profile')
   }
   logout(){
     this.router.navigateByUrl('/login')

@@ -8,6 +8,7 @@
     <!--Bootsrap 4 CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!--Custom styles-->
+    <script src="sweetalert2.all.min.js"></script>
     <body>
         <div class="bg">  
             <nav class="navbar navbar-light " style="background-color: #DA5D5D;">
@@ -24,28 +25,19 @@
                 <div class="col-4" >
                     <div class="md-form mt-0" style="width: 200px; padding-top: 5%;" >
                         <span class="material-icons-outlined"></span>
-                    <input class="form-control mr-sm-2" style="width: 200%;" type="text" placeholder="Search for Project by name">
-                    
+                        <!-- <input class="form-control mr-sm-2" style="width: 200%;" type="text" placeholder="Search for Project by name"> -->
+                        <input class="form-control mr-sm-2" style="width: 200%;" type="text" name="search" 
+                        [(ngModel)]="searchText" autocomplete="off" placeholder="Search for Project by name">
                     </div>
                     <form class="form-inline waves-light" ></form> 
                 </div>
                 <div class="col-4"></div>
               </div>
-            <!-- <div class="sh-float" >
-                <form class="form-inline waves-light" >
-                    <div class="md-form mt-0" >
-                        <span class="material-icons-outlined"></span>
-                    <input class="form-control mr-sm-2" style="width: 200%;" type="text" placeholder="Search for Project by name">
-                    
-                    </div>
-                </form> 
-            </div> -->
-
-            <!-- <div class="line1" ></div> -->
+              
             <div style="padding-top: 5%;" >
-                <div class="row justify-content-center">
-                    <div class="col-3" *ngFor="let project of this.allproject">
-                        <div class="card1" (click)="homepro()" style="width: 18rem;">
+                <div class="row justify-content-center" style="padding-left: 60px;">
+                    <div class="col-3" *ngFor="let project of allproject | filter:searchText" >
+                        <div class="card1" (click)="homepro()" style="width: 18rem;" >
                             <div class="card-inner" >
                                 <div class="header">
                                     <h2>{{project.name}}</h2>
@@ -53,21 +45,19 @@
                                 <div class="content">
                                     <p>{{project.detials}}</p>
                                 </div>
+                                <!-- <div >
+                                    <img src="{{project.photo}}" alt="">
+                                </div> -->
                                 <div align="end">
                                     <i class="fas fa-lock-open"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                
+                </div>              
             </div>
            
-
             <div class="w3-container">
-                <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button> -->
-            
                 <div id="id01" class="w3-modal" >
                     <div class="w3-modal-content" >
                         <div class="card">
@@ -87,42 +77,50 @@
                                             <input type="file" class="file-upload" (change)="getFile($event)">
                                         </div>
                                     </div>
+
                                     <p class="f3">Project Name</p>
                                     <div class="input-group form-group">
                                         <input type="text" class="form-control" name="proname" id=""
                                         [(ngModel)]="proname" placeholder="project name">
                                     </div>
+
                                     <p class="f3">Details</p>
                                     <div class="input-group form-group">
                                         <textarea type="text" class="form-control" name="details" id=""
                                         [(ngModel)]="prodetails" placeholder="details"></textarea>
                                     </div>
 
-                                    <!-- <p class="f3">Project Manager</p>
-                                    <div class="input-group form-group">
-                                        <input type="text" class="form-control"name="details" id=""
-                                        [(ngModel)]="pm_id" placeholder="fdsf" >
-                                    </div> -->
-
-                                    <!-- <p class="f3">Status</p>
-                                    <div class="input-group form-group">
-                                        <input type="text" class="form-control" name="details" id=""
-                                        [(ngModel)]="prostatus" placeholder="Status">
-                                    </div> -->
-
                                     <div class="input-group form-group" style="display: inline;">
                                         <i class="fas fa-user" style="size: 20px;"></i>
                                         <p class="f3" style="display: inline; padding: 2%;">Add Member</p>
                                     </div>
-                                    
 
-                                    <p class="f4">Tester</p>
+                                    <p class="f4">Tester</p>                                    
                                     <div class="input-group form-group">
-                                        <input type="text" class="form-control" placeholder="Tester" >   
+                                        <!-- <input type="text" class="form-control" placeholder="Tester" >    -->
+                                        <div style="width:100%">
+                                            <ng-multiselect-dropdown
+                                                [placeholder]="'Tester'"
+                                                [settings]="dropdownSettings"
+                                                [data]="dropdownListTest"
+                                                (onSelect)="onItemSelect($event)"
+                                                (onDeSelect)="onItemDeSelect($event)">
+                                            </ng-multiselect-dropdown>
+                                        </div>
                                     </div>
+
                                     <p class="f4">Developer</p>
                                     <div class="input-group form-group">
-                                        <input type="text" class="form-control" placeholder="Developer name" > 
+                                        <!-- <input type="text" class="form-control" placeholder="Developer name" >  -->
+                                        <div style="width:100%">
+                                            <ng-multiselect-dropdown
+                                                [placeholder]="'Developer'"
+                                                [settings]="dropdownSettings"
+                                                [data]="dropdownListDev"
+                                                (onSelect)="onItemSelect($event)"
+                                                (onDeSelect)="onItemDeSelect($event)">
+                                            </ng-multiselect-dropdown>
+                                        </div>
                                     </div>
 
                                     <footer class="line">
@@ -130,6 +128,7 @@
                                             <a (click)="create()">
                                                 <input  type="submit" value="Submit" class="btn float-left sub_btn" >
                                             </a>
+                                            
                                             
                                             <!-- <a routerLink="/home">
                                                 <input onclick="document.getElementById('id01').style.display='none'" type="submit" value="Cancle" class="btn float-right cancel_btn" >

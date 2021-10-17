@@ -2,8 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-// import { DatalogService } from '../datalog.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,17 +15,12 @@ export class LoginComponent implements OnInit {
   name: any;
   position: any;
   
-
   constructor(
     private router : Router,
-    // private datauser : DatalogService,
     private http : HttpClient
-  ){
-    
-  }
+  ){}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   regis(){
     this.router.navigateByUrl('/register')
@@ -39,36 +32,19 @@ export class LoginComponent implements OnInit {
 
     this.http.post('http://report.comsciproject.com/report/login', JSON.stringify(json))
       .subscribe((response :any) => {
-
       sessionStorage.setItem("posi_id", response.user_data[0].position_id);
       sessionStorage.setItem("emp_id", response.user_data[0].employee_id);
       console.log(response.user_data[0].position_id);
       console.log('login success');
       
       if(response){
-        this.router.navigateByUrl('/home/'+this.username);
+        this.router.navigateByUrl('/home');
       }else{
         console.log('login fail');
-      }
-      
-    },error => { 
-      console.log('fail');
-      console.log(error);
-    });
-    // console.log('user'+JSON.stringify(json));
+      }      
+      },error => { 
+        console.log('fail');
+        console.log(error);
+      });
   }
-
-  // user(){
-  //   this.http.get('http://report.comsciproject.com/report/empp')
-  //   .subscribe(data => {
-  //     console.log(data);
-  //     this.position= data;
-  //   },error => {
-  //     console.log('fail');
-  //     console.log(error);
-  //   });
-  // }
-
-
-
 }
