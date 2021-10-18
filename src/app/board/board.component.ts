@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ShowdefectComponent } from '../showdefect/showdefect.component';
 // import { TestcaseComponent } from '../testcase/testcase.component';
 
@@ -26,17 +27,32 @@ export class BoardComponent implements OnInit {
   username: any;
 
   isPM : boolean = false;
+  isTest : boolean = false;
+  // isDev : boolean = false;
 
+  pro_name : any;
+  
   constructor(
     private router : Router,
-    public dialog : MatDialog
-  ) { }
+    public dialog : MatDialog,
+    private rout : ActivatedRoute,
+    private http : HttpClient
+  ) { 
+    
+  }
 
   ngOnInit(): void {
 
     if(sessionStorage.getItem("posi_id") == "1"){
       this.isPM = true;
     }
+    if(sessionStorage.getItem("posi_id") == "2"){
+      this.isTest = true;
+    }
+
+    this.pro_name = sessionStorage.getItem("projectname");
+    // console.log(sessionStorage.getItem("projectname"));
+    
   }
 
   openDialog() {

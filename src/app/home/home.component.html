@@ -37,7 +37,7 @@
             <div style="padding-top: 5%;" >
                 <div class="row justify-content-center" style="padding-left: 60px;">
                     <div class="col-3" *ngFor="let project of allproject | filter:searchText" >
-                        <div class="card1" (click)="homepro()" style="width: 18rem;" >
+                        <div class="card1" (click)="board(project.name,project.id)" style="width: 18rem;" >
                             <div class="card-inner" >
                                 <div class="header">
                                     <h2>{{project.name}}</h2>
@@ -127,17 +127,12 @@
                                         <div style="padding-top: 2%;" >
                                             <a (click)="create()">
                                                 <input  type="submit" value="Submit" class="btn float-left sub_btn" >
-                                            </a>
-                                            
-                                            
+                                            </a> 
                                             <!-- <a routerLink="/home">
                                                 <input onclick="document.getElementById('id01').style.display='none'" type="submit" value="Cancle" class="btn float-right cancel_btn" >
                                             </a> -->
                                         </div> 
                                     </footer>
-                                    
-                                    
-            
                                 </form>
                             </div>
                         </div>

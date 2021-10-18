@@ -18,9 +18,8 @@
         <div class="bg" >  
             <mat-drawer-container class="bg" >
                 <mat-drawer #drawer mode="side" opened>
-                    <h1>น้ำทิพท์</h1>
+                    <h1>{{pro_name}}</h1>
                     <mat-list role="list" class="side-bar">
-
                         <div class="sidesbar">
                             <div class="sidesbar_details">
                                 <div class="sidesbar_job">
@@ -33,7 +32,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="sidesbar">
+                        <div class="sidesbar" *ngIf="isTest">
                             <div class="sidesbar_details">
                                 <div class="sidesbar_job">
                                     <li>
@@ -112,24 +111,7 @@
                                 </div> 
                             </div>
                         </mat-drawer-content>
-        
-
-
-                  
                     </mat-list>
-                        <!-- <div class="exit">
-                            <div class="exit_details">
-                                <div class="exit_ex">
-                                    <li>
-                                        <a (click)="exit()">
-                                            <i class='bx bx-exit' ></i>
-                                            <span class="links_exit">Exit Project</span>
-                                        </a>
-                                    </li>
-                                </div>
-                                
-                            </div>
-                        </div> -->
                 </mat-drawer>
             
                 <mat-drawer-content>
@@ -171,21 +153,8 @@
                     </div>
 
 
-                    <div class="root">
-                        <!-- <div class="navbar has-background-dark">
-                          <div class="navbar-brand">
-                            <div class="navbar-item">
-                              <h1 class="app-name has-gradient-text">kanban</h1>
-                            </div>
-                          </div>
-                        </div> -->
-                      
+                    <div class="root">                    
                         <div class="board">
-                      
-                          <!-- <div class="board-bar">
-                            <p class="board-name">tes</p>
-                          </div> -->
-                      
                           <div class="board-wrapper">
                             <div class="board-columns" >
 
@@ -194,31 +163,6 @@
                                         Backlog
                                     </div>
                                     <div class="tasks-container">
-                                        <!-- <div class="card" (click)="homepro()">
-                                                <div class="card-inner">
-                                                    <div class="header">
-                                                    <h2>Title</h2>
-                                                    <h3>Sub-Head</h3>
-                                                    </div>
-                                                    <div class="content">
-                                                        <p>Content area</p>
-                                                    </div>
-                                                </div>
-                                        </div> -->
- 
-                                        <!-- <div class="card" onclick="document.getElementById('id01').style.display='block'">
-                                                <div class="card-inner">
-                                                    <div class="header">
-                                                    <h2>Title</h2>
-                                                    <h3>Sub-Head</h3>
-                                                    </div>
-                                                    <div class="content">
-                                                        <p>Content area</p>
-                                                    </div>
-                                                </div>
-                                            
-                                        </div> -->
-
                                         <div class="card" (click)="openDialog()">
                                             <div class="card-inner">
                                                 <div class="header">
@@ -229,10 +173,7 @@
                                                     <p>จำนวนสินค้าไม่เพิ่ม</p>
                                                 </div>
                                             </div>
-
-                                        </div>
-                                        
-                                        
+                                        </div>     
                                     </div>
                                 </div>
 
@@ -257,42 +198,17 @@
 
                             </div>
                       
-                            <!-- <div class="board-columns" cdkDropListGroup>
-                              <div class="board-column" *ngFor="let column of board.columns">
-                      
-                                <div class="column-title">
-                                  {{ column.name }}
-                                </div>
-                      
-                                <div class="tasks-container"
-                                cdkDropList
-                                [cdkDropListData]="column.tasks"
-                                (cdkDropListDropped)="drop($event)">
-                                  <div class="task" *ngFor="let item of column.tasks" cdkDrag>
-                                    {{ item }}
-                                  </div>
-                                </div>
-                              </div>
-                      
-                            </div> -->
-                      
                           </div>
                       
                         </div>
                       
                       </div>
-                    
-
-                   
-
-
                 </mat-drawer-content>
 
             </mat-drawer-container>
 
             <div class="w3-container">
-                <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button> -->
-            
+                
                 <div id="id01" class="w3-modal" >
                     <div class="w3-modal-content" >
                         <div class="card">
@@ -377,10 +293,10 @@
                                     <footer class="line">
                                         <div style="padding-top: 2%;">
                                             <a (click)="board()">
-                                                <input onclick="document.getElementById('id01').style.display='none'"  type="submit" value="ปิดโปรเจค" 
+                                                <input onclick="document.getElementById('id01').style.display='none'"  type="submit" value="Close Project" 
                                                 class="btn float-left sub_btn" style="background-color: rgb(95, 7, 7); color: seashell;">
                                             </a>
-                                            <a (click)="board()">
+                                            <a (click)="board()" >
                                                 <input onclick="document.getElementById('id01').style.display='none'"  type="submit" value="Submit" 
                                                 class="btn float-right cancel_btn" style="background-color: rgb(35, 207, 12);">
                                             </a>

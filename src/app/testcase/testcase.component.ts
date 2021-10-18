@@ -22,12 +22,25 @@ export class TestcaseComponent implements OnInit {
   status: any;
   remark: any;
 
+  isPM : boolean = false;
+  isTest : boolean = false;
+
+  pro_name : any;
 
   constructor(
     private router : Router
   ) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("posi_id") == "1"){
+      this.isPM = true;
+    }
+    if(sessionStorage.getItem("posi_id") == "2"){
+      this.isTest = true;
+    }
+
+    this.pro_name = sessionStorage.getItem("projectname");
+
   }
   onFileSelected(event: any){
     console.log(event);
@@ -66,17 +79,4 @@ export interface PeriodicElement {
 const ELEMENT_DATA: PeriodicElement[] = [
   {testmoduleID: 1, modulename: 'กรอก username ที่ไม่ถูกต้อง', testcaseID: 1, testdata: 'abc@com', teststep: '1.กรอกข้อมูลตาม test data', 
   expectedresult: 'ไม่สามารถใช้ username นี้ได้', status: 'pass', remark: 'มีกรอบสีแดงแสดงที่บริเวณ username'},
-
-  // {testmoduleID: 1, modulename: 'Hydrogen', testcaseID: 2, testdata: 'sssHe', teststep: 'Hessddd', 
-  // expectedresult: 'gdsg', status: 'pass', remark: 'dsgfdsjgoi'},
-  // {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H',testdata: 'tserr'},
-  // {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  // {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  // {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  // {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  // {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  // {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  // {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  // {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  // {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
 ];

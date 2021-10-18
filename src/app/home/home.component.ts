@@ -130,8 +130,10 @@ export class HomeComponent implements OnInit {
     console.log('test');
   }
 
-  homepro(){
-    this.router.navigateByUrl('/board')
+  board(name:any,id:any){
+    this.router.navigateByUrl('/board');
+    sessionStorage.setItem("projectname",name);
+    sessionStorage.setItem("project_id",id);
   }
 
   create(){

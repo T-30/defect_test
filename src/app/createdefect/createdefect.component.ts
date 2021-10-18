@@ -25,6 +25,11 @@ export class CreatedefectComponent implements OnInit {
   severity: any;
   assignees: any;
 
+  isPM : boolean = false;
+  isTest : boolean = false;
+
+  pro_name : any;
+
 
   constructor(
     private router : Router
@@ -33,6 +38,16 @@ export class CreatedefectComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    if(sessionStorage.getItem("posi_id") == "1"){
+      this.isPM = true;
+    }
+    if(sessionStorage.getItem("posi_id") == "2"){
+      this.isTest = true;
+    }
+
+    this.pro_name = sessionStorage.getItem("projectname");
+
   }
 
   onFileSelected(event: any){
