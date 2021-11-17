@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeproComponent implements OnInit {
  
+  sidenav_opened=true;
+  
   constructor() { }
 
   ngOnInit(): void {

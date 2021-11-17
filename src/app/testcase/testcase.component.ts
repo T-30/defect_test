@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-testcase',
@@ -21,6 +22,7 @@ export class TestcaseComponent implements OnInit {
   expectedresult: any;
   status: any;
   remark: any;
+  funtname:any;
 
   isPM : boolean = false;
   isTest : boolean = false;
@@ -28,8 +30,12 @@ export class TestcaseComponent implements OnInit {
   pro_name : any;
 
   constructor(
-    private router : Router
-  ) { }
+    private router : Router,
+    config: NgbModalConfig, private modalService: NgbModal
+  ) {
+    config.backdrop = 'static';
+    config.keyboard = false;
+   }
 
   ngOnInit(): void {
     if(sessionStorage.getItem("posi_id") == "1"){
@@ -60,6 +66,10 @@ export class TestcaseComponent implements OnInit {
   }
   exit(){
     this.router.navigateByUrl('/home')
+  }
+
+  open(content:any) {
+    this.modalService.open(content);
   }
 
   

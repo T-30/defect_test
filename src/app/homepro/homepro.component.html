@@ -1,3 +1,72 @@
-<app-header></app-header>
-<app-menubar></app-menubar>
+<!-- <app-header></app-header> -->
+<mat-toolbar color="primary" class="example-toolbar">
+
+    <button (click)="sidenav_opened = !sidenav_opened" 
+
+    style="border-radius: px;
+
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
+
+    ><mat-icon>menu</mat-icon></button>    
+
+</mat-toolbar>
+
+ 
+
+<!-- <mat-sidenav-container> -->
+
+<mat-sidenav [(opened)]="sidenav_opened"  #sidenav mode="side" >
+
+        <mat-nav-list>
+
+ 
+
+            <a mat-list-item > Timelist </a>
+
+            <mat-list-item routerLink="/projects">Projects</mat-list-item>
+
+            
+
+          </mat-nav-list>
+
+    
+
+</mat-sidenav>
+
+<!-- <mat-sidenav-content>
+
+    <div style="margin: 20px;">
+
+    Angular Material Sidenav:
+
+    <br>
+
+    <br>Sidenav Modes:
+
+    <ul>
+
+    <li>mode="push"</li>
+
+    <li>mode="over"</li>
+
+    <li>mode="side"</li>
+
+  </ul>
+
+  <br>Sidenav row:
+
+    <ul>
+
+    <li>mode="navigation"</li>
+
+    <li>mode="dialog"</li>    
+
+  </ul>
+
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container> -->
+<!-- <app-menubar></app-menubar> -->
 <!-- <app-registers></app-registers> -->

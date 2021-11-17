@@ -31,6 +31,8 @@ export class BoardComponent implements OnInit {
   // isDev : boolean = false;
 
   pro_name : any;
+  pro_id : any;
+  allDefect: any;
   
   constructor(
     private router : Router,
@@ -52,7 +54,10 @@ export class BoardComponent implements OnInit {
 
     this.pro_name = sessionStorage.getItem("projectname");
     // console.log(sessionStorage.getItem("projectname"));
+    this.pro_id = sessionStorage.getItem("project_id");
     
+    this.getdefect_data()
+
   }
 
   openDialog() {
@@ -61,6 +66,25 @@ export class BoardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  getdefect_data(){
+    var url='http://report.comsciproject.com/report/getdefect';
+    console.log(this.pro_id);
+    
+    let json = {project_id: this.pro_id}
+    console.log(url);  
+    this.http.post(url,JSON.stringify(json))
+    .subscribe((data :any) => {
+      console.log(data);
+      this.allDefect = data;
+     
+    },error => { 
+      console.log("error");
+      
+      console.log(error);
+    });
+
   }
 
   

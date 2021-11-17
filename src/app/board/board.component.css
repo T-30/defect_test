@@ -358,3 +358,18 @@
   .input-group .form-group{
     width: 600px;
   }
+
+  .container1{
+    width: 100%;
+}
+
+.al-left{
+    float: left;
+    max-width: 15vw;
+}
+
+.al-right{
+    float: right;
+    max-width: 85vw;
+}
+

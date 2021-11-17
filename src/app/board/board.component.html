@@ -2,61 +2,66 @@
 
 <!DOCTYPE html>
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <!--Fontawesome CDN-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <!--Bootsrap 4 CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <!--Icon styles-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/scss" href="board.component.scss"> -->
-    <!-- Boxicon CND Link -->
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <body>
-        <div class="bg" >  
-            <mat-drawer-container class="bg" >
-                <mat-drawer #drawer mode="side" opened>
-                    <h1>{{pro_name}}</h1>
-                    <mat-list role="list" class="side-bar">
-                        <div class="sidesbar">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="board()">
-                                            <i class='bx bx-bar-chart-alt-2' ></i>
-                                            <span class="links_sidesbar">board</span>
-                                        </a>
-                                    </li>
-                                </div>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--Fontawesome CDN-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<!--Bootsrap 4 CDN-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<!--Icon styles-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- <link rel="stylesheet" type="text/scss" href="board.component.scss"> -->
+<!-- Boxicon CND Link -->
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+<body>
+    <div class="bg">
+        <mat-drawer-container class="bg">
+            <mat-drawer #drawer mode="side" opened>
+                <h1>{{pro_name}}</h1>
+                <mat-list role="list" class="side-bar">
+                    <div class="sidesbar">
+                        <div class="sidesbar_details">
+                            <div class="sidesbar_job">
+                                <li>
+                                    <a (click)="board()">
+                                        <i class='bx bx-bar-chart-alt-2'></i>
+                                        <span class="links_sidesbar">board</span>
+                                    </a>
+                                </li>
                             </div>
                         </div>
-                        <div class="sidesbar" *ngIf="isTest">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="create()">
-                                            <i class='bx bx-pencil'></i>
-                                            <span class="links_sidesbar">create defect</span>
-                                        </a>
-                                    </li>
-                                </div>
+                    </div>
+                    <div class="sidesbar" *ngIf="isTest">
+                        <div class="sidesbar_details">
+                            <div class="sidesbar_job">
+                                <li>
+                                    <a (click)="create()">
+                                        <i class='bx bx-pencil'></i>
+                                        <span class="links_sidesbar">create defect</span>
+                                    </a>
+                                </li>
                             </div>
                         </div>
-                        <div class="sidesbar">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="testcase()">
-                                            <i class='bx bxs-book-open' ></i>
-                                            <span class="links_sidesbar">testcase</span>
-                                        </a>
-                                    </li>
-                                </div>
+                    </div>
+                    <div class="sidesbar">
+                        <div class="sidesbar_details">
+                            <div class="sidesbar_job">
+                                <li>
+                                    <a (click)="testcase()">
+                                        <i class='bx bxs-book-open'></i>
+                                        <span class="links_sidesbar">testcase</span>
+                                    </a>
+                                </li>
                             </div>
                         </div>
-                        <!-- <div class="sidesbar">
+                    </div>
+                    <!-- <div class="sidesbar">
                             <div class="sidesbar_details">
                                 <div class="sidesbar_job">
                                     <li>
@@ -69,260 +74,268 @@
                             </div>
                         </div> -->
 
-                        <div class="sidesbar" *ngIf="isPM">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a onclick="document.getElementById('id01').style.display='block'">
-                                            <i class='bx bx-cog'></i>
-                                            <span class="links_exit">edit project</span>
-                                        </a>
-                                    </li>
-                                </div>                               
+                    <div class="sidesbar" *ngIf="isPM">
+                        <div class="sidesbar_details">
+                            <div class="sidesbar_job">
+                                <li>
+                                    <a onclick="document.getElementById('id01').style.display='block'">
+                                        <i class='bx bx-cog'></i>
+                                        <span class="links_exit">edit project</span>
+                                    </a>
+                                </li>
                             </div>
                         </div>
-
-                        <div class="sidesbar">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="exit()">
-                                            <i class='bx bx-exit' ></i>
-                                            <span class="links_exit">Exit Project</span>
-                                        </a>
-                                    </li>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <mat-drawer-content>
-                            <div class="right-side">
-                                <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="drawer.toggle()">reorder</mat-icon>
-        
-                                <!-- Search form -->
-                                <div class="sh-float" > 
-                                    <input class="form-control mr-sm-2" type="text" placeholder="Search for Project by name"> 
-                                </div>
-                                
-                                <div class="ph-float">
-                                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" 
-                                    class='ph-button ph-btn-green'>Project Setting</button>
-                                </div> 
-                            </div>
-                        </mat-drawer-content>
-                    </mat-list>
-                </mat-drawer>
-            
-                <mat-drawer-content>
-                    <div class="right-side">
-                        <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="drawer.toggle()">reorder</mat-icon>
-
-                        <div style="width: 150px;margin-left: 15px;">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Tester</option>
-                                <option value="1">name1</option>
-                                <option value="2">name2</option>
-                                <option value="3">name3</option>
-                            </select>
-                        </div>
-                        <div style="width: 150px;margin-left: 15px;">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Developer</option>
-                                <option value="1">name1</option>
-                                <option value="2">name2</option>
-                                <option value="3">name3</option>
-                            </select>
-                        </div>
-                        <div style="width: 180px;margin-left: 15px;">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Defect Severity</option>
-                                <option value="">None</option>
-                                <option value="1">Critical</option>
-                                <option value="2">Major</option>
-                                <option value="3">Normal</option>
-                                <option value="4">Minor</option>
-                            </select>
-                        </div>
-
-                         <!-- Search form -->
-                        <div class="sh-float" > 
-                            <input class="form-control mr-sm-2" type="text" placeholder="Search for Project by name"> 
-                        </div>
-
                     </div>
 
+                    <div class="sidesbar">
+                        <div class="sidesbar_details">
+                            <div class="sidesbar_job">
+                                <li>
+                                    <a (click)="exit()">
+                                        <i class='bx bx-exit'></i>
+                                        <span class="links_exit">Exit Project</span>
+                                    </a>
+                                </li>
+                            </div>
 
-                    <div class="root">                    
-                        <div class="board">
-                          <div class="board-wrapper">
-                            <div class="board-columns" >
+                        </div>
+                    </div>
 
-                                <div class="board-column" >
+                    <mat-drawer-content>
+                        <div class="right-side">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="drawer.toggle()">
+                                reorder</mat-icon>
+
+                            <!-- Search form -->
+                            <div class="sh-float">
+                                <input class="form-control mr-sm-2" type="text"
+                                    placeholder="Search for Project by name">
+                            </div>
+
+                            <div class="ph-float">
+                                <button onclick="document.getElementById('id01').style.display='block'"
+                                    class="w3-button w3-black" class='ph-button ph-btn-green'>Project Setting</button>
+                            </div>
+                        </div>
+                    </mat-drawer-content>
+                </mat-list>
+            </mat-drawer>
+
+            <mat-drawer-content>
+                <div class="right-side">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="drawer.toggle()">reorder
+                    </mat-icon>
+
+                    <div style="width: 150px;margin-left: 15px;">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Tester</option>
+                            <option value="1">name1</option>
+                            <option value="2">name2</option>
+                            <option value="3">name3</option>
+                        </select>
+                    </div>
+                    <div style="width: 150px;margin-left: 15px;">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Developer</option>
+                            <option value="1">name1</option>
+                            <option value="2">name2</option>
+                            <option value="3">name3</option>
+                        </select>
+                    </div>
+                    <div style="width: 180px;margin-left: 15px;">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Defect Severity</option>
+                            <option value="">None</option>
+                            <option value="1">Critical</option>
+                            <option value="2">Major</option>
+                            <option value="3">Normal</option>
+                            <option value="4">Minor</option>
+                        </select>
+                    </div>
+
+                    <!-- Search form -->
+                    <div class="sh-float">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search for Project by name">
+                    </div>
+
+                </div>
+
+
+                <div class="root">
+                    <div class="board">
+                        <div class="board-wrapper">
+                            <div class="board-columns">
+
+                                <div class="board-column">
                                     <div class="column-title">
                                         Backlog
                                     </div>
-                                    <div class="tasks-container">
+                                    <div class="tasks-container" *ngFor="let defect of allDefect">
                                         <div class="card" (click)="openDialog()">
                                             <div class="card-inner">
                                                 <div class="header">
-                                                <h2>จำนวนสินค้าในตะกร้าไม่เพิ่ม</h2>
-                                                <!-- <h3>จำนวนสินค้าไม่เพิ่ม</h3> -->
+                                                    <h2>{{defect.title_name}}</h2>
+                                                    <!-- <h3>จำนวนสินค้าไม่เพิ่ม</h3> -->
                                                 </div>
                                                 <div class="content">
-                                                    <p>จำนวนสินค้าไม่เพิ่ม</p>
+                                                    <p>{{defect.due_date}}</p>
                                                 </div>
                                             </div>
-                                        </div>     
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="board-column" >
+                                <div class="board-column">
                                     <div class="column-title">
                                         Doing
                                     </div>
 
                                 </div>
 
-                                <div class="board-column" >
+                                <div class="board-column">
                                     <div class="column-title">
                                         Ready for Test
                                     </div>
                                 </div>
 
-                                <div class="board-column" >
+                                <div class="board-column">
                                     <div class="column-title">
                                         Done
                                     </div>
                                 </div>
 
                             </div>
-                      
-                          </div>
-                      
+
                         </div>
-                      
-                      </div>
-                </mat-drawer-content>
-
-            </mat-drawer-container>
-
-            <div class="w3-container">
-                
-                <div id="id01" class="w3-modal" >
-                    <div class="w3-modal-content" >
-                        <div class="card">
-                            <div class="card-header">
-                                <span onclick="document.getElementById('id01').style.display='none'" 
-                                    class="w3-button w3-display-topright" >&times;</span>
-                                    <h2 class="f2">Genaral</h2>
-                            </div>
-                            <div class="card-body">
-                                <form>
-                                    <p class="date" style="display: inline;" >Date</p>
-                                    <p class="date1" >28/12/2020</p>
-                                    <p class="f3">Project Name : </p>
-                                    <div class="input-group form-group">
-                                        <input type="text" class="form-control" placeholder="น้ำทิพท์">
-                                    </div>
-                                    <p class="f3">Project Manager : </p>
-                                    <div class="input-group form-group">
-                                        <input type="text" class="form-control" placeholder="เรณุกา">
-                                    </div>
-                                    <div class="input-group form-group" style="display: inline;">
-                                        <i class="fas fa-user" style="size: 20px;"></i>
-                                        <p class="f3" style="display: inline; padding: 2%;">Add Member</p>
-                                    </div>
-                                    
-
-                                    <!-- <p class="f4">Tester</p> -->
-                                    <div class="input-group form-group" style="border-radius: 20px; width: 500px; ">
-                                        <input type="text" class="form-control" style="border-radius: 20px;" 
-                                        placeholder="member name" > 
-                                        <div style="display: inline; padding-left: 15px;">
-                                            <select class="form-select" aria-label="Default select example" style="width: 150px;">
-                                                <option selected>Select Position</option>
-                                                <option value="1">Tester</option>
-                                                <option value="2">Developer</option>
-                                            </select>
-                                        </div>
-                                        <button>ADD</button>
-                                    </div>
-
-                                    <div>
-                                        <div class="row">
-                                            <div class="col" style="text-align: center;">Username</div>
-                                            <div class="col" style="text-align: center;">Name - Lastname</div>
-                                            <div class="col" style="text-align: center;">Position</div>
-                                            <div class="col" style="text-align: center;">Remove</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="line">
-                                        <mat-card >
-                                            <div class="row">
-                                                <div class="col" style="text-align: center;">Hathaichanok</div>
-                                                <div class="col" style="text-align: center;">Hathaichanok Poopanna</div>
-                                                <div class="col" style="text-align: center;">Tester</div>
-                                                <div class="col" style="text-align: center;">
-                                                    <button mat-icon-button color="Basic" aria-label="Example icon button with a delete icon" style="margin-top: 1px;" >
-                                                    <mat-icon style="background-color: black;">delete</mat-icon>
-                                                </button>
-                                                </div>
-                                            </div>
-                                        </mat-card>
-                                        <mat-card >
-                                            <div class="row">
-                                                <div class="col" style="text-align: center;">Renuka</div>
-                                                <div class="col" style="text-align: center;">Renuka Butda</div>
-                                                <div class="col" style="text-align: center;">Tester</div>
-                                                <div class="col" style="text-align: center;">
-                                                    <button mat-icon-button color="Basic" aria-label="Example icon button with a delete icon" style="margin-top: 1px;" >
-                                                    <mat-icon style="background-color: black;">delete</mat-icon>
-                                                </button>
-                                                </div>
-                                            </div>
-                                        </mat-card>
-                                        
-
-                                       
-                                    </div>
-
-                                    
-
-                                    <footer class="line">
-                                        <div style="padding-top: 2%;">
-                                            <a (click)="board()">
-                                                <input onclick="document.getElementById('id01').style.display='none'"  type="submit" value="Close Project" 
-                                                class="btn float-left sub_btn" style="background-color: rgb(95, 7, 7); color: seashell;">
-                                            </a>
-                                            <a (click)="board()" >
-                                                <input onclick="document.getElementById('id01').style.display='none'"  type="submit" value="Submit" 
-                                                class="btn float-right cancel_btn" style="background-color: rgb(35, 207, 12);">
-                                            </a>
-                                            <a (click)="board()">
-                                                <input onclick="document.getElementById('id01').style.display='none'" type="submit" value="Cancle" 
-                                                class="btn float-right cancel_btn" style="background-color: red;">
-                                            </a>
-                                        </div> 
-                                    </footer>
-                                    
-                                     
-            
-                                </form>
-                            </div>
-                        </div>
-
-                       
 
                     </div>
+
                 </div>
-                
+            </mat-drawer-content>
+
+        </mat-drawer-container>
+
+        <div class="w3-container">
+
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <span onclick="document.getElementById('id01').style.display='none'"
+                                class="w3-button w3-display-topright">&times;</span>
+                            <h2 class="f2">Genaral</h2>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <p class="date" style="display: inline;">Date</p>
+                                <p class="date1">28/12/2020</p>
+                                <p class="f3">Project Name : </p>
+                                <div class="input-group form-group">
+                                    <input type="text" class="form-control" placeholder="น้ำทิพท์">
+                                </div>
+                                <p class="f3">Project Manager : </p>
+                                <div class="input-group form-group">
+                                    <input type="text" class="form-control" placeholder="เรณุกา">
+                                </div>
+                                <div class="input-group form-group" style="display: inline;">
+                                    <i class="fas fa-user" style="size: 20px;"></i>
+                                    <p class="f3" style="display: inline; padding: 2%;">Add Member</p>
+                                </div>
+
+
+                                <!-- <p class="f4">Tester</p> -->
+                                <div class="input-group form-group" style="border-radius: 20px; width: 500px; ">
+                                    <input type="text" class="form-control" style="border-radius: 20px;"
+                                        placeholder="member name">
+                                    <div style="display: inline; padding-left: 15px;">
+                                        <select class="form-select" aria-label="Default select example"
+                                            style="width: 150px;">
+                                            <option selected>Select Position</option>
+                                            <option value="1">Tester</option>
+                                            <option value="2">Developer</option>
+                                        </select>
+                                    </div>
+                                    <button>ADD</button>
+                                </div>
+
+                                <div>
+                                    <div class="row">
+                                        <div class="col" style="text-align: center;">Username</div>
+                                        <div class="col" style="text-align: center;">Name - Lastname</div>
+                                        <div class="col" style="text-align: center;">Position</div>
+                                        <div class="col" style="text-align: center;">Remove</div>
+                                    </div>
+                                </div>
+
+                                <div class="line">
+                                    <mat-card>
+                                        <div class="row">
+                                            <div class="col" style="text-align: center;">Hathaichanok</div>
+                                            <div class="col" style="text-align: center;">Hathaichanok Poopanna</div>
+                                            <div class="col" style="text-align: center;">Tester</div>
+                                            <div class="col" style="text-align: center;">
+                                                <button mat-icon-button color="Basic"
+                                                    aria-label="Example icon button with a delete icon"
+                                                    style="margin-top: 1px;">
+                                                    <mat-icon style="background-color: black;">delete</mat-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </mat-card>
+                                    <mat-card>
+                                        <div class="row">
+                                            <div class="col" style="text-align: center;">Renuka</div>
+                                            <div class="col" style="text-align: center;">Renuka Butda</div>
+                                            <div class="col" style="text-align: center;">Tester</div>
+                                            <div class="col" style="text-align: center;">
+                                                <button mat-icon-button color="Basic"
+                                                    aria-label="Example icon button with a delete icon"
+                                                    style="margin-top: 1px;">
+                                                    <mat-icon style="background-color: black;">delete</mat-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </mat-card>
+
+
+
+                                </div>
+
+
+
+                                <footer class="line">
+                                    <div style="padding-top: 2%;">
+                                        <a (click)="board()">
+                                            <input onclick="document.getElementById('id01').style.display='none'"
+                                                type="submit" value="Close Project" class="btn float-left sub_btn"
+                                                style="background-color: rgb(95, 7, 7); color: seashell;">
+                                        </a>
+                                        <a (click)="board()">
+                                            <input onclick="document.getElementById('id01').style.display='none'"
+                                                type="submit" value="Submit" class="btn float-right cancel_btn"
+                                                style="background-color: rgb(35, 207, 12);">
+                                        </a>
+                                        <a (click)="board()">
+                                            <input onclick="document.getElementById('id01').style.display='none'"
+                                                type="submit" value="Cancle" class="btn float-right cancel_btn"
+                                                style="background-color: red;">
+                                        </a>
+                                    </div>
+                                </footer>
+
+
+
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                </div>
             </div>
-        </div>       
-    </body>
+
+        </div>
+    </div>
+</body>
+
 </html>
-
-
-
-

@@ -37,7 +37,7 @@
             <div style="padding-top: 5%;" >
                 <div class="row justify-content-center" style="padding-left: 60px;">
                     <div class="col-3" *ngFor="let project of allproject | filter:searchText" >
-                        <div class="card1" (click)="board(project.name,project.id)" style="width: 18rem;" >
+                        <div class="card1" (click)="board(project.name,project.project_id)" style="width: 18rem;" >
                             <div class="card-inner" >
                                 <div class="header">
                                     <h2>{{project.name}}</h2>
