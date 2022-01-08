@@ -14,12 +14,15 @@ import { ShowdefectComponent } from './showdefect/showdefect.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
+  // { path: 'home', component: HomeComponent},
+  // { path: '', redirectTo: '/home', pathMatch: 'full' },
   {path: '', component: LoginComponent},
+  { path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'home', component: HomeComponent},
   {path: 'menubar', component: MenubarComponent},
-  {path: 'homepro', component: HomeproComponent},
+  {path: 'homepro', component: HomeproComponent}, 
   {path: 'createdefect', component: CreatedefectComponent},
   {path: 'board', component: BoardComponent},
   {path: 'header', component: HeaderComponent},

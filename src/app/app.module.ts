@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 // const appRoutes: Routes = [];
 
 @NgModule({
@@ -80,7 +81,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatTableModule,
     HttpClientModule,
     NgMultiSelectDropDownModule.forRoot(),
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    RouterModule
     
     
   ],

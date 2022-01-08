@@ -15,104 +15,17 @@
     <body>
         <!-- <app-registers></app-registers> -->
         <div class="bg" >  
-            <mat-drawer-container class="bg" >
-                <mat-drawer #drawer mode="side" opened>
-                    <h1>{{pro_name}}</h1>
-                    <mat-list role="list" class="side-bar">
-                        <div class="sidesbar">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="board()">
-                                            <i class='bx bx-bar-chart-alt-2' ></i>
-                                            <span class="links_sidesbar">board</span>
-                                        </a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidesbar" *ngIf="isTest">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="create()" >
-                                            <i class='bx bx-pencil'></i>
-                                            <span class="links_sidesbar">create defect</span>
-                                        </a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidesbar">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="testcase()">
-                                            <i class='bx bxs-book-open' ></i>
-                                            <span class="links_sidesbar">testcase</span>
-                                        </a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="sidesbar">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="homepro()">
-                                            <i class='bx bx-pie-chart-alt-2' ></i>
-                                            <span class="links_sidesbar">chart</span>
-                                        </a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <div class="sidesbar" *ngIf="isPM">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a onclick="document.getElementById('id01').style.display='block'">
-                                            <i class='bx bx-cog'></i>
-                                            <span class="links_exit">edit project</span>
-                                        </a>
-                                    </li>
-                                </div>                               
-                            </div>
-                        </div>
-
-                        <div class="sidesbar">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="exit()">
-                                            <i class='bx bx-exit' ></i>
-                                            <span class="links_exit">Exit Project</span>
-                                        </a>
-                                    </li>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                  
-                    </mat-list>
-                        
-                </mat-drawer>
-            
-                <mat-drawer-content>
-                    <div class="right-side">
-                        <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="drawer.toggle()">reorder</mat-icon>
-                        <h2 style="width: 300px; height: 20px; padding-left: 20px;">Create New Defect</h2>
-
-                        <div class="ph-float">
-                            <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" 
-                            class='ph-button ph-btn-red'>CANCEL</button> -->
-
-                            <button class='ph-button ph-btn-green' >Add Defect</button>
-                        </div> 
+            <!-- <div>
+                <app-profile ></app-profile>
+            </div> -->
+            <mat-sidenav-container>
+                <mat-sidenav #sidenav role="navigation">
+                    <app-menubar (sidenavClose)="sidenav.close()"></app-menubar>
+                    <!-- <app-profile ></app-profile> -->
+                </mat-sidenav>
+                <mat-sidenav-content>
+                  <app-homepro (sidenavToggle)="sidenav.toggle()"></app-homepro>
                     
-                    </div>
 
                     <div > 
 
@@ -249,9 +162,10 @@
                         
                     </div>
 
-
-                </mat-drawer-content>
-            </mat-drawer-container>
+                </mat-sidenav-content>
+            </mat-sidenav-container>
+            
+    
 
             <div class="w3-container">
                 <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button> -->

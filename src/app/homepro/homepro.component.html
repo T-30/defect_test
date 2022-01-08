@@ -1,72 +1,46 @@
-<!-- <app-header></app-header> -->
-<mat-toolbar color="primary" class="example-toolbar">
+<mat-toolbar style="background-color: #DA5D5D;">
+  <div fxHide.gt-xs>
+      <button mat-icon-button (click)="onToggleSidenav()">
+          <mat-icon>menu</mat-icon>
+      </button>
+  </div>
+  
+  <div class="right-side">
 
-    <button (click)="sidenav_opened = !sidenav_opened" 
-
-    style="border-radius: px;
-
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
-
-    ><mat-icon>menu</mat-icon></button>    
-
-</mat-toolbar>
-
- 
-
-<!-- <mat-sidenav-container> -->
-
-<mat-sidenav [(opened)]="sidenav_opened"  #sidenav mode="side" >
-
-        <mat-nav-list>
-
- 
-
-            <a mat-list-item > Timelist </a>
-
-            <mat-list-item routerLink="/projects">Projects</mat-list-item>
-
-            
-
-          </mat-nav-list>
-
-    
-
-</mat-sidenav>
-
-<!-- <mat-sidenav-content>
-
-    <div style="margin: 20px;">
-
-    Angular Material Sidenav:
-
-    <br>
-
-    <br>Sidenav Modes:
-
-    <ul>
-
-    <li>mode="push"</li>
-
-    <li>mode="over"</li>
-
-    <li>mode="side"</li>
-
-  </ul>
-
-  <br>Sidenav row:
-
-    <ul>
-
-    <li>mode="navigation"</li>
-
-    <li>mode="dialog"</li>    
-
-  </ul>
-
+    <div style="width: 150px;margin-left: 15px;">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Tester</option>
+            <option value="1">name1</option>
+            <option value="2">name2</option>
+            <option value="3">name3</option>
+        </select>
+    </div>
+    <div style="width: 150px;margin-left: 15px;">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Developer</option>
+            <option value="1">name1</option>
+            <option value="2">name2</option>
+            <option value="3">name3</option>
+        </select>
+    </div>
+    <div style="width: 180px;margin-left: 15px;">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Defect Severity</option>
+            <option value="">None</option>
+            <option value="1">Critical</option>
+            <option value="2">Major</option>
+            <option value="3">Normal</option>
+            <option value="4">Minor</option>
+        </select>
     </div>
 
-  </mat-sidenav-content>
+    <!-- Search form -->
+    <div class="sh-float">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search for Project by name">
+    </div>
+    <div class="ph-float">
+        <button class='ph-button ph-btn-green' >Add Defect</button>
+    </div>
 
-</mat-sidenav-container> -->
-<!-- <app-menubar></app-menubar> -->
-<!-- <app-registers></app-registers> -->
+</div>
+</mat-toolbar>

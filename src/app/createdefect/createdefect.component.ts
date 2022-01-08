@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { ShowdefectComponent } from '../showdefect/showdefect.component';
 
 
 @Component({
@@ -10,6 +11,9 @@ import { Router } from '@angular/router';
 })
 export class CreatedefectComponent implements OnInit {
   title = 'appBootstrap';
+
+  sidenav_opened=true;
+  @Output() public sidenavToggle = new EventEmitter();
   
   model: any;
 
@@ -29,6 +33,9 @@ export class CreatedefectComponent implements OnInit {
   isTest : boolean = false;
 
   pro_name : any;
+  dialog: any;
+  
+
 
 
   constructor(
@@ -52,6 +59,18 @@ export class CreatedefectComponent implements OnInit {
 
   onFileSelected(event: any){
     console.log(event);
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ShowdefectComponent);
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  public onToggleSidenav = () => { 
+    this.sidenavToggle.emit();
   }
 
   homepro(){

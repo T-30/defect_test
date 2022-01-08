@@ -1,269 +1,62 @@
-<!-- <app-header></app-header> -->
-<!DOCTYPE html>
-<html>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <!--Fontawesome CDN-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <!--Bootsrap 4 CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!--Icon styles-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Boxicon CND Link -->
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <body>
-        <div class="bg">  
-            <mat-drawer-container class="bg">
-                <mat-drawer #drawer mode="side" opened>
-                    <h1></h1>
-                    <mat-list role="list" class="side-bar">
-                        <!-- <button class="btn btn-primary"(click)="homepro()">Go somewhere</button> -->
-                        <!-- <a (click)="homepro()">
-                            <mat-list-item role="listitem">HOME</mat-list-item>
-                        </a>
-                        <a (click)="create()">
-                            <mat-list-item role="listitem">Create Defect</mat-list-item>
-                        </a>
-                        <a (click)="board()">
-                            <mat-list-item role="listitem">Board</mat-list-item>
-                        </a>
-                        <a (click)="exit()">
-                            <mat-list-item role="listitem">Exit</mat-list-item>
-                        </a> -->
-
-                        <div class="sidesbar">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="board()">
-                                            <i class='bx bx-bar-chart-alt-2' ></i>
-                                            <span class="links_sidesbar">board</span>
-                                        </a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidesbar">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="create()">
-                                            <i class='bx bx-pencil'></i>
-                                            <span class="links_sidesbar">create defect</span>
-                                        </a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidesbar">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="testcase()">
-                                            <i class='bx bxs-book-open' ></i>
-                                            <span class="links_sidesbar">testcase</span>
-                                        </a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidesbar">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="homepro()">
-                                            <i class='bx bx-pie-chart-alt-2' ></i>
-                                            <span class="links_sidesbar">chart</span>
-                                        </a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidesbar">
-                            <div class="sidesbar_details">
-                                <div class="sidesbar_job">
-                                    <li>
-                                        <a (click)="exit()">
-                                            <i class='bx bx-exit' ></i>
-                                            <span class="links_exit">Exit Project</span>
-                                        </a>
-                                    </li>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                  
-                    </mat-list>
-                    <!-- <div class="profile_content"> -->
-                        <!-- <div class="exit">
-                            <div class="exit_details">
-                                <div class="exit_ex">
-                                    <li>
-                                        <a (click)="exit()">
-                                            <i class='bx bx-exit' ></i>
-                                            <span class="links_exit">Exit Project</span>
-                                        </a>
-                                    </li>
-                                </div>
-                                
-                            </div>
-                        </div> -->
-                    <!-- </div> -->
-                </mat-drawer>
-            
-                <mat-drawer-content>
-                    <div class="right-side">
-                        <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="drawer.toggle()">reorder</mat-icon>
-
-                        <!-- Search form -->
-                        <div class="sh-float" > 
-                            <input class="form-control mr-sm-2" type="text" placeholder="Search for Project by name"> 
-                        </div>
-                        
-                        <div class="ph-float">
-                            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" 
-                            class='ph-button ph-btn-green'>Project Setting</button>
-                        </div> 
-                    </div>
-                </mat-drawer-content>
-
-              
-            </mat-drawer-container>
-            
-            <!-- <div class="line1" ></div> -->
-
-            
-
-            <div class="w3-container">
-                <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button> -->
-            
-                <div id="id01" class="w3-modal" >
-                    <div class="w3-modal-content" >
-                        <div class="card">
-                            <div class="card-header">
-                                <span onclick="document.getElementById('id01').style.display='none'" 
-                                    class="w3-button w3-display-topright" >&times;</span>
-                                    <h2 class="f2">Genaral</h2>
-                            </div>
-                            <div class="card-body">
-                                <form>
-                                    <p class="date" style="display: inline;" >Date</p>
-                                    <p class="date1" >28/12/2020</p>
-                                    <p class="f3">Project Name : </p>
-                                    <div class="input-group form-group">
-                                        <input type="text" class="form-control" placeholder="project name">
-                                    </div>
-                                    <p class="f3">Project Manager : </p>
-                                    <div class="input-group form-group">
-                                        <input type="text" class="form-control" placeholder="project manager">
-                                    </div>
-                                    <div class="input-group form-group" style="display: inline;">
-                                        <i class="fas fa-user" style="size: 20px;"></i>
-                                        <p class="f3" style="display: inline; padding: 2%;">Add Member</p>
-                                    </div>
-                                    
-
-                                    <!-- <p class="f4">Tester</p> -->
-                                    <div class="input-group form-group" style="border-radius: 20px; width: 500px; ">
-                                        <input type="text" class="form-control" style="border-radius: 20px;" 
-                                        placeholder="Tester name" > 
-                                        <div style="display: inline; padding-left: 15px;">
-                                            <select class="form-select" aria-label="Default select example" style="width: 150px;">
-                                                <option selected>Select Position</option>
-                                                <option value="1">Tester</option>
-                                                <option value="2">Developer</option>
-                                            </select>
-                                        </div>
-                                        <button>ADD</button>
-                                    </div>
-
-                                    <div>
-                                        <div class="row">
-                                            <div class="col" style="text-align: center;">Username</div>
-                                            <div class="col" style="text-align: center;">Name - Lastname</div>
-                                            <div class="col" style="text-align: center;">Position</div>
-                                            <div class="col" style="text-align: center;">Remove</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="line">
-                                        <mat-card >
-                                            <div class="row">
-                                                <div class="col" style="text-align: center;">Hathaichanok</div>
-                                                <div class="col" style="text-align: center;">Hathaichanok Poopanna</div>
-                                                <div class="col" style="text-align: center;">Tester</div>
-                                                <div class="col" style="text-align: center;">
-                                                    <button mat-icon-button color="Basic" aria-label="Example icon button with a delete icon" style="margin-top: 1px;" >
-                                                    <mat-icon style="background-color: black;">delete</mat-icon>
-                                                </button>
-                                                </div>
-                                            </div>
-                                        </mat-card>
-                                        <mat-card >
-                                            <div class="row">
-                                                <div class="col" style="text-align: center;">Renuka</div>
-                                                <div class="col" style="text-align: center;">Renuka Butda</div>
-                                                <div class="col" style="text-align: center;">Tester</div>
-                                                <div class="col" style="text-align: center;">
-                                                    <button mat-icon-button color="Basic" aria-label="Example icon button with a delete icon" style="margin-top: 1px;" >
-                                                    <mat-icon style="background-color: black;">delete</mat-icon>
-                                                </button>
-                                                </div>
-                                            </div>
-                                        </mat-card>
-                                        <!-- <div>
-                                            <mat-card>
-                                                <span >Hathaichanok</span>
-                                                <span style="padding: 150px;">Hathaichanok Poopanna</span>
-                                                <span>Tester</span>
-                                                <mat-icon style="background-color: brown;">delete</mat-icon>
-
-                                            </mat-card>
-                                        </div>
-                                        <div>
-                                            <mat-card>
-                                                <span >Renuka</span>
-                                                <span style="padding: 150px;">Renuka Butda</span>
-                                                <span>Tester</span>
-                                                <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon" >
-                                                    <mat-icon >delete</mat-icon>
-                                                </button>
-                                            </mat-card>
-                                        </div> -->
-                                       
-                                    </div>
-
-                                    
-
-                                    <footer class="line">
-                                        <div style="padding-top: 2%;">
-                                            <a routerLink="/homepro">
-                                                <input onclick="document.getElementById('id01').style.display='none'"  type="submit" value="Submit" class="btn float-left sub_btn" >
-                                            </a>
-                                            <a routerLink="/homepro">
-                                                <input onclick="document.getElementById('id01').style.display='none'" type="submit" value="Cancle" class="btn float-right cancel_btn" >
-                                            </a>
-                                        </div> 
-                                    </footer>
-                                    
-                                     
-            
-                                </form>
-                            </div>
-                        </div>
-
-                       
-
+<!-- <mat-nav-list>
+    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
+        <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+    </a>
+    <a mat-list-item routerLink="/owner" (click)="onSidenavClose()">
+        <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Owner Actions</span>   
+    </a>
+    <a mat-list-item routerLink="#" (click)="onSidenavClose()">
+        <mat-icon>account_balance</mat-icon><span class="nav-caption">Account Actions</span>
+    </a>
+  </mat-nav-list> -->
+<h1>{{pro_name}}</h1>
+<mat-nav-list>
+    <div>
+        <a mat-list-item (click)="board()">
+            <i class='bx bx-bar-chart-alt-2'></i>
+            <span class="links_sidesbar">board</span>
+        </a>
+    </div>
+        
+    <div *ngIf="isTest">
+        <a mat-list-item (click)="create()">
+            <i class='bx bx-pencil'></i>
+            <span class="links_sidesbar">create defect</span>
+        </a>
+    </div>
+    <div>
+        <a mat-list-item (click)="testcase()">
+            <i class='bx bxs-book-open'></i>
+            <span class="links_sidesbar">testcase</span>
+        </a>
+    </div>
+        
+        <!-- <div class="sidesbar">
+                <div class="sidesbar_details">
+                    <div class="sidesbar_job">
+                        <li>
+                            <a (click)="homepro()">
+                                <i class='bx bx-pie-chart-alt-2' ></i>
+                                <span class="links_sidesbar">chart</span>
+                            </a>
+                        </li>
                     </div>
                 </div>
+            </div> -->
+    <div>
+        <a mat-list-item onclick="document.getElementById('id01').style.display='block'">
+                <i class='bx bx-cog'></i>
+                <span class="links_exit">edit project</span>
+            </a>
+    </div>
+    <div>
+        <a mat-list-item (click)="exit()">
+            <i class='bx bx-exit'></i>
+            <span class="links_exit">Exit Project</span>
+        </a>
+    </div>
+            
+
+       
+</mat-nav-list>
                 
-            </div>
-
-        </div>       
-        
-    </body>
-</html>
-
-
-

@@ -1,22 +1,79 @@
-
-a{
-
+a {
   text-decoration: none;
-
   color: white;
-
 }
 
 a:hover, a:active{
-
   color: lightgray;
-
 }
 
-.nav-caption{
+.navigation-items{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 
-  display: inline-block;
+mat-toolbar{
+  border-radius: 3px;
+}
 
-  padding-left: 6px;
+@media(max-width: 959px){
+  mat-toolbar{
+      border-radius: 0px;
+  }
+}
 
+   /*Main button class
+  ==========================*/
+  .ph-button {
+      
+    border-style: solid;
+    border-width: 0px 0px 2px;
+    /* box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset; */
+    color: #FFFFFF;	   
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    font-style: normal;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all 200ms ease-in-out 0s;
+    white-space: nowrap;	
+    font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
+    font-weight: 700;	
+    padding: 4px 25px 3px;
+    font-size: 18px;
+  }
+  /*Green
+  ==========================*/
+  .ph-btn-green {
+  
+    border-color: #036b11;
+    background-color: #07b842;
+  }
+
+  .ph-float {
+    float: left;
+    height: 20px;
+    width: 95%;
+    padding: 5px;  
+    padding-top: 1px;  
+    text-align: right;
+  }
+
+  #div1 {
+    float:left;
+    width:100px;
+    height:100px;
+    border:solid 2px red;
+    text-align:center;
+}
+#div2 {
+    float:left;
+    width:100px;
+    height:100px;
+    border:solid 2px green;
+    text-align:center;
 }
